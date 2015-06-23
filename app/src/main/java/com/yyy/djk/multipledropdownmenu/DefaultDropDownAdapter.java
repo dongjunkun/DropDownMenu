@@ -16,7 +16,6 @@ import butterknife.InjectView;
 
 public class DefaultDropDownAdapter extends BaseAdapter {
 
-
     private Context context;
     private List<String> list;
     private int checkItemPosition = 0;

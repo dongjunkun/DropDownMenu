@@ -1,0 +1,6 @@
+
+build/outputs/logs
+build/outputs/apk/app-debug-unaligned.apk
+build/generated
+build/intermediates
+build/tmp

@@ -18,7 +18,7 @@ import butterknife.InjectView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.dropDownMenu) DropDownMenu mDropDownMenu;
+    @InjectView(R.id.dropDownMenu) MultipleDropDownMenu mMultipleDropDownMenu;
     private String headers[] = {"武汉", "不限年龄", "不限性别"};
     private List<View> popuViews = new ArrayList<>();
 
@@ -48,16 +48,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cityViews.getAdapter().setCheckItem(position);
-                mDropDownMenu.setText( cityViews.getListView(),citys[position]);
-                mDropDownMenu.resetMenu();
+                mMultipleDropDownMenu.setMenuText(cityViews.getListView(), citys[position]);
+                mMultipleDropDownMenu.closeMenu();
             }
         });
         ageViews.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ageViews.getAdapter().setCheckItem(position);
-                mDropDownMenu.setText( ageViews.getListView(),ages[position]);
-                mDropDownMenu.resetMenu();
+                mMultipleDropDownMenu.setMenuText(ageViews.getListView(), ages[position]);
+                mMultipleDropDownMenu.closeMenu();
             }
         });
 
@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 sexViews.getAdapter().setCheckItem(position);
-                mDropDownMenu.setText( sexViews.getListView(),sexs[position]);
-                mDropDownMenu.resetMenu();
+                mMultipleDropDownMenu.setMenuText(sexViews.getListView(), sexs[position]);
+                mMultipleDropDownMenu.closeMenu();
             }
         });
 
@@ -76,13 +76,13 @@ public class MainActivity extends AppCompatActivity {
         contentView.setText("内容显示区域");
         contentView.setGravity(Gravity.CENTER);
         contentView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-        mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popuViews, contentView);
+        mMultipleDropDownMenu.setDropDownMenu(Arrays.asList(headers), popuViews, contentView);
     }
 
     @Override
     public void onBackPressed() {
-        if (mDropDownMenu.isShowing()) {
-            mDropDownMenu.resetMenu();
+        if (mMultipleDropDownMenu.isShowing()) {
+            mMultipleDropDownMenu.closeMenu();
         } else {
             super.onBackPressed();
         }

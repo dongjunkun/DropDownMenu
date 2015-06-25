@@ -1,4 +1,4 @@
-package com.yyy.djk.multipledropdownmenu;
+package com.yyy.djk.dropdownmenu;
 
 import android.content.Context;
 import android.widget.AdapterView;

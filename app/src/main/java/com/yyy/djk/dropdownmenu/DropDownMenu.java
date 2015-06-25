@@ -1,7 +1,6 @@
-package com.yyy.djk.multipledropdownmenu;
+package com.yyy.djk.dropdownmenu;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -17,15 +16,17 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.yyy.djk.multipledropdownmenu.R;
+
 import java.util.List;
 
 
 /**
  * Created by dongjunkun on 2015/6/17.
  */
-public class MultipleDropDownMenu extends LinearLayout {
+public class DropDownMenu extends LinearLayout {
 
-    public static final String TAG = MultipleDropDownMenu.class.getSimpleName();
+    public static final String TAG = DropDownMenu.class.getSimpleName();
 
     //菜单导航栏
     private LinearLayout navigateMenuView;
@@ -41,15 +42,15 @@ public class MultipleDropDownMenu extends LinearLayout {
 
 
 
-    public MultipleDropDownMenu(Context context) {
+    public DropDownMenu(Context context) {
         super(context, null);
     }
 
-    public MultipleDropDownMenu(Context context, AttributeSet attrs) {
+    public DropDownMenu(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MultipleDropDownMenu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DropDownMenu(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         navigateMenuView = new LinearLayout(context);

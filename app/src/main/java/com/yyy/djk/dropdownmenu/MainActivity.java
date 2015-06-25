@@ -1,4 +1,4 @@
-package com.yyy.djk.multipledropdownmenu;
+package com.yyy.djk.dropdownmenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.yyy.djk.multipledropdownmenu.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +20,7 @@ import butterknife.InjectView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.dropDownMenu) MultipleDropDownMenu mMultipleDropDownMenu;
+    @InjectView(R.id.dropDownMenu) DropDownMenu mDropDownMenu;
     private String headers[] = {"武汉", "不限年龄", "不限性别"};
     private List<View> popuViews = new ArrayList<>();
 
@@ -48,16 +50,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cityViews.getAdapter().setCheckItem(position);
-                mMultipleDropDownMenu.setMenuText(cityViews.getListView(), citys[position]);
-                mMultipleDropDownMenu.closeMenu();
+                mDropDownMenu.setMenuText(cityViews.getListView(), citys[position]);
+                mDropDownMenu.closeMenu();
             }
         });
         ageViews.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ageViews.getAdapter().setCheckItem(position);
-                mMultipleDropDownMenu.setMenuText(ageViews.getListView(), ages[position]);
-                mMultipleDropDownMenu.closeMenu();
+                mDropDownMenu.setMenuText(ageViews.getListView(), ages[position]);
+                mDropDownMenu.closeMenu();
             }
         });
 
@@ -65,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 sexViews.getAdapter().setCheckItem(position);
-                mMultipleDropDownMenu.setMenuText(sexViews.getListView(), sexs[position]);
-                mMultipleDropDownMenu.closeMenu();
+                mDropDownMenu.setMenuText(sexViews.getListView(), sexs[position]);
+                mDropDownMenu.closeMenu();
             }
         });
 
@@ -76,13 +78,13 @@ public class MainActivity extends AppCompatActivity {
         contentView.setText("内容显示区域");
         contentView.setGravity(Gravity.CENTER);
         contentView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-        mMultipleDropDownMenu.setDropDownMenu(Arrays.asList(headers), popuViews, contentView);
+        mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popuViews, contentView);
     }
 
     @Override
     public void onBackPressed() {
-        if (mMultipleDropDownMenu.isShowing()) {
-            mMultipleDropDownMenu.closeMenu();
+        if (mDropDownMenu.isShowing()) {
+            mDropDownMenu.closeMenu();
         } else {
             super.onBackPressed();
         }

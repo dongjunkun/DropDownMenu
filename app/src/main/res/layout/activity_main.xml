@@ -1,4 +1,4 @@
-<com.yyy.djk.multipledropdownmenu.MultipleDropDownMenu
+<com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

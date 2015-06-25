@@ -1,4 +1,4 @@
-package com.yyy.djk.multipledropdownmenu;
+package com.yyy.djk.dropdownmenu;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

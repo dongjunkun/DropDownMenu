@@ -12,7 +12,16 @@
 
 #用法
 
-
+布局
+<com.yyy.djk.dropdownmenu.DropDownMenu
+    android:id="@+id/dropDownMenu"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"/>
+    
 #特色
 1、并非用popuWindow实现，切换效果更流畅
 

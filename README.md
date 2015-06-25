@@ -8,7 +8,7 @@
 
 ![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simaple.gif)
 
-体验地址 <a href="https://raw.githubusercontent.com/dongjunkun/MultipleDropDownMenu/master/simple.apk">demo apk</a>
+体验地址 <a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">demo apk</a>
 
 ##用法
 

@@ -22,6 +22,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity"/>
     
+    
 #特色
 1、并非用popuWindow实现，切换效果更流畅
 

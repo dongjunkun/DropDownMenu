@@ -15,7 +15,7 @@ First of all,this my first library for github,I read a lot awesome library in cr
 download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">  apk</a>
 
 ##Usage
-**layout**
+**Layout**
 ```
 <com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
@@ -28,4 +28,4 @@ download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/
 ```
 
 ##About me
-    a android developer,love life,love creative,love open source,love android
+    **a android developer,love life,love creative,love open source,love android,if you have any new idea about this project, feel free contact me**

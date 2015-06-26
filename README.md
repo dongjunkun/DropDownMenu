@@ -12,7 +12,7 @@ First of all,this my first library for github,I read a lot awesome library in cr
 ##Screenshot
 ![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simaple.gif)
 
-download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">  apk</a>
+<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">download demo</a>
 
 ##Usage
 **Layout**

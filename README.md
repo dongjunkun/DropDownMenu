@@ -2,6 +2,10 @@
 
 A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question ,please issues or pull request this repositories,welcome star or fork！
 
+##feature
+1、fully customization
+2、not popuwinw implement, better experience effort
+
 ##why this?
 First of all,this my first repositories,I read a lot awesome repositories in create this before,but not find i want effect,so i create this.
 
@@ -24,7 +28,3 @@ download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/
     tools:context=".MainActivity"/>
 ```
     
-##feature
-1、fully customization
-
-2、not popuwinw implement, better experience effort

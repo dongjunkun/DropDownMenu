@@ -3,7 +3,7 @@
 A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question ,please issues or pull request this repositories,welcome star or fork！
 
 ##why this?
-First of all,this my first repositories,I read a lot awesome repositories in create this before,but not find i want effect,so i create this.Frang1993 DropDownMenu</a>用popuWindow实现，菜单切换不是很流畅，所以决定写这个。
+First of all,this my first repositories,I read a lot awesome repositories in create this before,but not find i want effect,so i create this.
 
 
 ![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simaple.gif)

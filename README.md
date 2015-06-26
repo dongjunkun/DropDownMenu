@@ -6,8 +6,8 @@ A simple practical multiple condition filter drop down menu,drop down menu style
  - fully customization, you can add any view or viewGroup,do you want do
  - not popuwinw implement, better experience effort
 
-##why this?
-First of all,this my first repositories,I read a lot awesome repositories in create this before,but not find i want effect,so i create this.
+##why create this library?
+First of all,this my first library for github,I read a lot awesome library in create this before,but not find i want effect,so i create this.
 
 ##screenshot
 ![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simaple.gif)
@@ -28,4 +28,4 @@ download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/
 ```
 
 ##about me
-    
+    a android developer,love life,love creative,love open source,love android

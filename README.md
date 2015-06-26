@@ -28,4 +28,4 @@ download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/
 ```
 
 ##About me
-a android developer, love android,love life, love creative and open source
+A android developer, like android,like life, like creative,like open source,like doing something interesting

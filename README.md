@@ -8,7 +8,7 @@ First of all,this my first repositories,I read a lot awesome repositories in cre
 ##preview
 ![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simaple.gif)
 
-download this demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">  apk</a>
+download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">  apk</a>
 
 ##usage
 

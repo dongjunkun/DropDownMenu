@@ -3,7 +3,7 @@
 A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question ,please issues or pull request this repositories,welcome star or fork！
 
 ##feature
-1、fully customization
+1、fully customization, you can add any view or viewGroup,do you want do
 2、not popuwinw implement, better experience effort
 
 ##why this?

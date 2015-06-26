@@ -3,8 +3,8 @@
 A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question or have new idea about this library,via issues or pull request this library,welcome star or fork！
 
 ##Feature
- - fully customization, you can add any view or viewGroup,do you want do
- - not popuwinw implement, better experience effort
+ - Fully customization, you can add any view or viewGroup,do you want do
+ - Not popuwinw implement, better experience effort
 
 ##Why create this library?
 First of all,this my first library for github,I read a lot awesome library in create this before,but not find i want effect,so i create this.

@@ -9,7 +9,7 @@ A simple practical multiple condition filter drop down menu,drop down menu style
 ##why this?
 First of all,this my first repositories,I read a lot awesome repositories in create this before,but not find i want effect,so i create this.
 
-##preview
+##screenshot
 ![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simaple.gif)
 
 download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">  apk</a>

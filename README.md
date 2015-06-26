@@ -15,8 +15,7 @@ First of all,this my first repositories,I read a lot awesome repositories in cre
 download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">  apk</a>
 
 ##usage
-
-**xml**
+**layout**
 ```
 <com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
@@ -27,4 +26,6 @@ download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/
     android:orientation="vertical"
     tools:context=".MainActivity"/>
 ```
+
+##about me
     

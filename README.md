@@ -1,6 +1,6 @@
 # MultipleDropDownMenu
 
-A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question ,please issues or pull request this repositories,welcome star or fork！
+A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question or have new idea about this library,via issues or pull request this library,welcome star or fork！
 
 ##Feature
  - fully customization, you can add any view or viewGroup,do you want do
@@ -28,4 +28,4 @@ download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/
 ```
 
 ##About me
-    **a android developer,love life,love creative,love open source,love android,if you have any new idea about this project, feel free contact me**
+**a android developer,love life,love creative,love open source,love android**

@@ -4,7 +4,7 @@
     <color name="gray">#cccccc</color>
 
     <color name="drop_down_selected">#890c85</color>
-    <color name="drop_down_unselected">#131719</color>
+    <color name="drop_down_unselected">#111111</color>
 
     <color name="mask_color">#88888888</color>
 </resources>

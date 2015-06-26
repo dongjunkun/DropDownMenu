@@ -1,8 +1,9 @@
 <com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    app:ddmenuTextSize="13px"
     tools:context=".MainActivity"/>

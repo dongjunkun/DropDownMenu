@@ -1,6 +1,7 @@
 package com.yyy.djk.dropdownmenu;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -28,18 +29,24 @@ public class DropDownMenu extends LinearLayout {
 
     public static final String TAG = DropDownMenu.class.getSimpleName();
 
-    //菜单导航栏
     private LinearLayout navigateMenuView;
-    //包含菜单以及内容
     private FrameLayout containerView;
-    //包含maskView以及所有菜单
     private FrameLayout coverView;
-    //当菜单不足一屏时底下半透明阴影区域，点击可关闭菜单
     private View maskView;
-    //选中的菜单
     private View currentView;
+
     private Animation dropdown_in, dropdown_out, dropdown_mask_in, dropdown_mask_out;
 
+
+    private int dividerColor = 0xffcccccc;
+    private int textSelectedColor = 0xff890c85;
+    private int textUnselectedColor = 0xff111111;
+    private int maskColor = 0x88888888;
+    private int textPadding = 12;
+    private int menuTextSize = 14;
+
+    private int menuSelectedIcon = R.mipmap.drop_down_selected_icon;
+    private int menuUnselectedIcon = R.mipmap.drop_down_unselected_icon;
 
 
     public DropDownMenu(Context context) {
@@ -53,16 +60,34 @@ public class DropDownMenu extends LinearLayout {
     public DropDownMenu(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
+        setOrientation(VERTICAL);
+        int menuBackgroundColor = 0xffffffff;
+        int underlineColor = 0xffcccccc;
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DropDownMenu);
+        underlineColor = a.getColor(R.styleable.DropDownMenu_ddunderlineColor, underlineColor);
+        dividerColor = a.getColor(R.styleable.DropDownMenu_dddividerColor, dividerColor);
+        textSelectedColor = a.getColor(R.styleable.DropDownMenu_ddtextSelectedColor, textSelectedColor);
+        textUnselectedColor = a.getColor(R.styleable.DropDownMenu_ddtextUnselectedColor, textUnselectedColor);
+        menuBackgroundColor = a.getColor(R.styleable.DropDownMenu_ddmenuBackgroundColor, menuBackgroundColor);
+        maskColor = a.getColor(R.styleable.DropDownMenu_ddmaskColor, maskColor);
+        textPadding = a.getDimensionPixelOffset(R.styleable.DropDownMenu_ddtextPadding, textPadding);
+        menuTextSize = a.getDimensionPixelOffset(R.styleable.DropDownMenu_ddmenuTextSize, menuTextSize);
+
+        menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuSelectedIcon, menuSelectedIcon);
+        menuUnselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuUnselectedIcon, menuUnselectedIcon);
+
+        a.recycle();
+
         navigateMenuView = new LinearLayout(context);
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         navigateMenuView.setOrientation(HORIZONTAL);
-        navigateMenuView.setBackgroundResource(android.R.color.white);
+        navigateMenuView.setBackgroundColor(menuBackgroundColor);
         navigateMenuView.setLayoutParams(params);
         addView(navigateMenuView, 0);
 
         View underLine = new View(getContext());
         underLine.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(1.0f)));
-        underLine.setBackgroundResource(R.color.gray);
+        underLine.setBackgroundColor(underlineColor);
         addView(underLine, 1);
 
         containerView = new FrameLayout(context);
@@ -74,6 +99,7 @@ public class DropDownMenu extends LinearLayout {
         dropdown_mask_in = AnimationUtils.loadAnimation(context, R.anim.dropdown_mask_in);
         dropdown_mask_out = AnimationUtils.loadAnimation(context, R.anim.dropdown_mask_out);
 
+
     }
 
     public void setDropDownMenu(List<String> texts, List<View> menus, View contentView) {
@@ -82,23 +108,24 @@ public class DropDownMenu extends LinearLayout {
             menu.setSingleLine();
             menu.setEllipsize(TextUtils.TruncateAt.END);
             menu.setGravity(Gravity.CENTER);
+            menu.setTextSize(TypedValue.COMPLEX_UNIT_SP,menuTextSize);
             menu.setLayoutParams(new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
-            menu.setTextColor(getResources().getColor(R.color.drop_down_unselected));
+            menu.setTextColor(textUnselectedColor);
             menu.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     switchMenu(menu);
                 }
             });
-            menu.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.drop_down_unselected_icon), null);
+            menu.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
             menu.setText(texts.get(i));
-            int padding = dpToPx(12f);
+            int padding = dpToPx(textPadding);
             menu.setPadding(padding, padding, padding, padding);
             navigateMenuView.addView(menu);
             if (i < texts.size() - 1) {
                 View view = new View(getContext());
                 view.setLayoutParams(new LayoutParams(dpToPx(0.5f), ViewGroup.LayoutParams.MATCH_PARENT));
-                view.setBackgroundColor(Color.parseColor("#cccccc"));
+                view.setBackgroundColor(dividerColor);
                 navigateMenuView.addView(view);
             }
         }
@@ -110,7 +137,7 @@ public class DropDownMenu extends LinearLayout {
 
         maskView = new View(getContext());
         maskView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
-        maskView.setBackgroundResource(R.color.mask_color);
+        maskView.setBackgroundColor(maskColor);
         maskView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,9 +185,9 @@ public class DropDownMenu extends LinearLayout {
 
                     }
                 });
-                ((TextView) navigateMenuView.getChildAt(i)).setTextColor(getResources().getColor(R.color.drop_down_unselected));
+                ((TextView) navigateMenuView.getChildAt(i)).setTextColor(textUnselectedColor);
                 ((TextView) navigateMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
-                        getResources().getDrawable(R.mipmap.drop_down_unselected_icon), null);
+                        getResources().getDrawable(menuUnselectedIcon), null);
             }
         }
 
@@ -185,15 +212,15 @@ public class DropDownMenu extends LinearLayout {
                         coverView.getChildAt(i / 2 + 1).clearAnimation();
                         coverView.getChildAt(i / 2 + 1).startAnimation(dropdown_in);
                     }
-                    ((TextView) navigateMenuView.getChildAt(i)).setTextColor(getResources().getColor(R.color.drop_down_selected));
+                    ((TextView) navigateMenuView.getChildAt(i)).setTextColor(textSelectedColor);
                     ((TextView) navigateMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
-                            getResources().getDrawable(R.mipmap.drop_down_selected_icon), null);
+                            getResources().getDrawable(menuSelectedIcon), null);
                     currentView = target;
                 }
             } else {
-                ((TextView) navigateMenuView.getChildAt(i)).setTextColor(getResources().getColor(R.color.drop_down_unselected));
+                ((TextView) navigateMenuView.getChildAt(i)).setTextColor(textUnselectedColor);
                 ((TextView) navigateMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
-                        getResources().getDrawable(R.mipmap.drop_down_unselected_icon), null);
+                        getResources().getDrawable(menuUnselectedIcon), null);
                 coverView.getChildAt(i / 2 + 1).setVisibility(View.GONE);
             }
         }
@@ -201,6 +228,6 @@ public class DropDownMenu extends LinearLayout {
 
     public int dpToPx(float value) {
         DisplayMetrics dm = getResources().getDisplayMetrics();
-        return (int)(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, dm)+0.5);
+        return (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, dm) + 0.5);
     }
 }

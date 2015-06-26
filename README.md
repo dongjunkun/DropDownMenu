@@ -12,7 +12,8 @@ download demo<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/
 
 ##usage
 
-```xml
+```
+**xml**
 <com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
     xmlns:android="http://schemas.android.com/apk/res/android"

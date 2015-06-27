@@ -50,7 +50,7 @@ First of all,this my first library for github,I read a lot awesome library in cr
         contentView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popuViews, contentView);
 ```
-if you want when menu is showing preess back key close menu not close this activity,you can add
+if you want when menu is showing preess back key close menu not close this activity,you can add below code
 ```
  @Override
     public void onBackPressed() {

@@ -1,4 +1,4 @@
-# MultipleDropDownMenu
+# DropDownMenu
 
 A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question or have new idea about this library,via issues or pull request this library,welcome star or fork！
 

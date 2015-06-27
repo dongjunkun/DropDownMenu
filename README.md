@@ -16,6 +16,7 @@ First of all,this my first library for github,I read a lot awesome library in cr
 
 ##Usage
 ####step1
+add DropDownMenu in your xml
 ```
 <com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
@@ -38,6 +39,7 @@ First of all,this my first library for github,I read a lot awesome library in cr
 ```
 
 ####step2
+now we just need invoke DropDownMenu setDropDownMenu() method then finish that params
 ```
  private String headers[] = {"武汉", "不限年龄", "不限性别"};
     private List<View> popuViews = new ArrayList<>();

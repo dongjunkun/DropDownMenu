@@ -2,7 +2,6 @@ package com.yyy.djk.dropdownmenu;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -86,7 +85,7 @@ public class DropDownMenu extends LinearLayout {
         addView(navigateMenuView, 0);
 
         View underLine = new View(getContext());
-        underLine.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(1.0f)));
+        underLine.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, pxToDp(1.0f)));
         underLine.setBackgroundColor(underlineColor);
         addView(underLine, 1);
 
@@ -119,12 +118,12 @@ public class DropDownMenu extends LinearLayout {
             });
             menu.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
             menu.setText(texts.get(i));
-            int padding = dpToPx(textPadding);
+            int padding = pxToDp(textPadding);
             menu.setPadding(padding, padding, padding, padding);
             navigateMenuView.addView(menu);
             if (i < texts.size() - 1) {
                 View view = new View(getContext());
-                view.setLayoutParams(new LayoutParams(dpToPx(0.5f), ViewGroup.LayoutParams.MATCH_PARENT));
+                view.setLayoutParams(new LayoutParams(pxToDp(0.5f), ViewGroup.LayoutParams.MATCH_PARENT));
                 view.setBackgroundColor(dividerColor);
                 navigateMenuView.addView(view);
             }
@@ -226,7 +225,7 @@ public class DropDownMenu extends LinearLayout {
         }
     }
 
-    public int dpToPx(float value) {
+    public int pxToDp(float value) {
         DisplayMetrics dm = getResources().getDisplayMetrics();
         return (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, dm) + 0.5);
     }

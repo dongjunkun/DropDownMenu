@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class DefaultDropDownAdapter extends BaseAdapter {
+public class ListDropDownAdapter extends BaseAdapter {
 
     private Context context;
     private List<String> list;
@@ -27,7 +27,7 @@ public class DefaultDropDownAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public DefaultDropDownAdapter(Context context, List<String> list) {
+    public ListDropDownAdapter(Context context, List<String> list) {
         this.context = context;
         this.list = list;
     }

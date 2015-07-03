@@ -6,4 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:ddmenuTextSize="13px"
+    app:ddtextUnselectedColor="@color/drop_down_unselected"
+    app:ddtextSelectedColor="@color/drop_down_selected"
+    app:dddividerColor="@color/gray"
+    app:ddunderlineColor="@color/gray"
+    app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon"
+    app:ddmaskColor="@color/mask_color"
+    app:ddmenuBackgroundColor="@color/white"
+    app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
+    app:ddtextPadding="20px"
     tools:context=".MainActivity"/>

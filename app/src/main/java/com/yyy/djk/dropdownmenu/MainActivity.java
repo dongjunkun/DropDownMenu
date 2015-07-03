@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.yyy.djk.multipledropdownmenu.R;
@@ -24,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private String headers[] = {"武汉", "不限年龄", "不限性别"};
     private List<View> popuViews = new ArrayList<>();
 
-    private DefaultDropDownList cityViews;
     private DefaultDropDownList ageViews;
     private DefaultDropDownList sexViews;
+    private GirdDropDownAdapter cityAdapter;
 
     private String citys[] = {"武汉", "北京", "上海", "成都", "广州", "深圳", "重庆", "天津", "西安", "南京", "杭州"};
     private String ages[] = {"不限年龄", "18岁以下", "18到22岁", "23岁到27岁", "28到35岁", "36到50岁", "50岁以上"};
@@ -38,19 +39,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        cityViews = new DefaultDropDownList(this, Arrays.asList(citys));
+        final GridView cityView = new GridView(this);
+        cityView.setNumColumns(3);
+        cityAdapter = new GirdDropDownAdapter(this,Arrays.asList(citys));
+        cityView.setAdapter(cityAdapter);
         ageViews = new DefaultDropDownList(this, Arrays.asList(ages));
         sexViews = new DefaultDropDownList(this, Arrays.asList(sexs));
 
-        popuViews.add(cityViews.getListView());
+        popuViews.add(cityView);
         popuViews.add(ageViews.getListView());
         popuViews.add(sexViews.getListView());
 
-        cityViews.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        cityView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                cityViews.getAdapter().setCheckItem(position);
-                mDropDownMenu.setMenuText(cityViews.getListView(), citys[position]);
+                cityAdapter.setCheckItem(position);
+                mDropDownMenu.setMenuText(cityView, citys[position]);
                 mDropDownMenu.closeMenu();
             }
         });

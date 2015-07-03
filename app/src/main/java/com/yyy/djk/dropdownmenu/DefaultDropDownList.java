@@ -6,15 +6,12 @@ import android.widget.ListView;
 
 import java.util.List;
 
-/**
- * Created by sdmt-gjw on 2015/6/18.
- */
 public class DefaultDropDownList {
     private ListView listView;
-    private DefaultDropDownAdapter dropDownAdapter;
+    private ListDropDownAdapter dropDownAdapter;
 
     public DefaultDropDownList(Context context, List<String> list) {
-        dropDownAdapter = new DefaultDropDownAdapter(context, list);
+        dropDownAdapter = new ListDropDownAdapter(context, list);
         listView = new ListView(context);
         listView.setDividerHeight(0);
         listView.setAdapter(dropDownAdapter);
@@ -24,7 +21,7 @@ public class DefaultDropDownList {
         return listView;
     }
 
-    public DefaultDropDownAdapter getAdapter() {
+    public ListDropDownAdapter getAdapter() {
         return dropDownAdapter;
     }
 

@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        //当菜单正在显示状态，则先关闭菜单
         if (mDropDownMenu.isShowing()) {
             mDropDownMenu.closeMenu();
         } else {

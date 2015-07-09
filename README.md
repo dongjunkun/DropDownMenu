@@ -1,21 +1,21 @@
-# DropDownMenu
+## DropDownMenu
 
-A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully costomization,the repositories just ofer a simple framework,not popuwindow implement,better experience,if you have any question or have new idea about this library,via issues or pull request this library,welcome star or fork！
+A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully customization,the repositories just offer a simple framework,not PopupWindow implement,better experience,if you have any question or have new idea about this library,via issues or pull request this library,welcome star or fork！
 
 ##Feature
  - Fully customization, you can add any view or viewGroup,do you want do
- - Not popuwinw implement, better experience effort
+ - Not PopupWindow implement, better experience effort
 
 ##Why create this library?
 First of all,this my first library for github,I read a lot awesome library in create this before,but not find i want effect,so i create this.
 
-##Screenshot
-![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simaple.gif)
+##ScreenShot
+![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simple.gif)
 
-<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">download demo</a>
+<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download Demo</a>
 
 ##Usage
-####step1
+####Step1
 add DropDownMenu in your xml
 ```
 <com.yyy.djk.dropdownmenu.DropDownMenu
@@ -38,21 +38,12 @@ add DropDownMenu in your xml
     tools:context=".MainActivity"/>
 ```
 
-####step2
-now we just need invoke DropDownMenu setDropDownMenu() method then finish that params
+####Step2
+Now we just need invoke DropDownMenu setDropDownMenu().
 ```
- private String headers[] = {"武汉", "不限年龄", "不限性别"};
-    private List<View> popuViews = new ArrayList<>();
-
- //内容
-        TextView contentView = new TextView(this);
-        contentView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        contentView.setText("内容显示区域");
-        contentView.setGravity(Gravity.CENTER);
-        contentView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-        mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popuViews, contentView);
+       mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
 ```
-if you want when menu is showing preess back key close menu not close this activity,you can add below code
+If you want when menu is showing press back key close menu not close this activity,you can add below code in your activity.
 ```
  @Override
     public void onBackPressed() {
@@ -63,9 +54,8 @@ if you want when menu is showing preess back key close menu not close this activ
         }
     }
 ```
-in you activity
 
-you can view <a href="https://github.com/dongjunkun/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Simple</a>
+You can see <a href="https://github.com/dongjunkun/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Example</a>
 
 ##About me
 A android developer, like android,like life, like creative,like open source,like doing something interesting

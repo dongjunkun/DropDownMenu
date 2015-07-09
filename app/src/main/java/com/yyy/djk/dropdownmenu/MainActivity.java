@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yyy.djk.multipledropdownmenu.R;
@@ -23,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     @InjectView(R.id.dropDownMenu) DropDownMenu mDropDownMenu;
     private String headers[] = {"武汉", "不限年龄", "不限性别"};
-    private List<View> popuViews = new ArrayList<>();
+    private List<View> popupViews = new ArrayList<>();
 
-    private DefaultDropDownList ageViews;
-    private DefaultDropDownList sexViews;
     private GirdDropDownAdapter cityAdapter;
+    private ListDropDownAdapter ageAdapter;
+    private ListDropDownAdapter sexAdapter;
 
     private String citys[] = {"武汉", "北京", "上海", "成都", "广州", "深圳", "重庆", "天津", "西安", "南京", "杭州"};
     private String ages[] = {"不限年龄", "18岁以下", "18到22岁", "23岁到27岁", "28到35岁", "36到50岁", "50岁以上"};
@@ -38,17 +39,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+        initView();
 
+
+    }
+
+    private void initView() {
+        //init city menu
         final GridView cityView = new GridView(this);
         cityView.setNumColumns(3);
-        cityAdapter = new GirdDropDownAdapter(this,Arrays.asList(citys));
+        cityAdapter = new GirdDropDownAdapter(this, Arrays.asList(citys));
         cityView.setAdapter(cityAdapter);
-        ageViews = new DefaultDropDownList(this, Arrays.asList(ages));
-        sexViews = new DefaultDropDownList(this, Arrays.asList(sexs));
 
-        popuViews.add(cityView);
-        popuViews.add(ageViews.getListView());
-        popuViews.add(sexViews.getListView());
+        //init age menu
+        final ListView ageView = new ListView(this);
+        ageView.setDividerHeight(0);
+        ageAdapter = new ListDropDownAdapter(this,Arrays.asList(ages));
+        ageView.setAdapter(ageAdapter);
+
+        //init sex menu
+        final ListView sexView = new ListView(this);
+        sexView.setDividerHeight(0);
+        sexAdapter = new ListDropDownAdapter(this,Arrays.asList(sexs));
+        sexView.setAdapter(sexAdapter);
+
+        //init popupViews
+        popupViews.add(cityView);
+        popupViews.add(ageView);
+        popupViews.add(sexView);
 
         cityView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,31 +76,33 @@ public class MainActivity extends AppCompatActivity {
                 mDropDownMenu.closeMenu();
             }
         });
-        ageViews.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ageView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ageViews.getAdapter().setCheckItem(position);
-                mDropDownMenu.setMenuText(ageViews.getListView(), ages[position]);
+                ageAdapter.setCheckItem(position);
+                mDropDownMenu.setMenuText(ageView, ages[position]);
                 mDropDownMenu.closeMenu();
             }
         });
 
-        sexViews.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        sexView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                sexViews.getAdapter().setCheckItem(position);
-                mDropDownMenu.setMenuText(sexViews.getListView(), sexs[position]);
+                sexAdapter.setCheckItem(position);
+                mDropDownMenu.setMenuText(sexView, sexs[position]);
                 mDropDownMenu.closeMenu();
             }
         });
 
-        //内容
+        //init context view
         TextView contentView = new TextView(this);
         contentView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         contentView.setText("内容显示区域");
         contentView.setGravity(Gravity.CENTER);
         contentView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-        mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popuViews, contentView);
+
+        //init dropdownview
+        mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
     }
 
     @Override

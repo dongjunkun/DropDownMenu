@@ -10,7 +10,7 @@ A simple practical multiple condition filter drop down menu,drop down menu style
 First of all,this my first library for github,I read a lot awesome library in create this before,but not find i want effect,so i create this.
 
 ##ScreenShot
-![jj](https://github.com/dongjunkun/DropDownMenu/blob/master/art/simple.gif)
+<img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/blob/master/art/simple.gif"/>
 
 <a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download Demo</a>
 

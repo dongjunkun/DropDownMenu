@@ -39,23 +39,12 @@ add DropDownMenu in your xml
 ```
 
 ####Step2
-Now we just need invoke DropDownMenu setDropDownMenu().
+Now we just need invoke DropDownMenu setDropDownMenu(),example below
 ```
-       mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
-```
-If you want when menu is showing press back key close menu not close this activity,you can add below code in your activity.
-```
- @Override
-    public void onBackPressed() {
-        if (mDropDownMenu.isShowing()) {
-            mDropDownMenu.closeMenu();
-        } else {
-            super.onBackPressed();
-        }
-    }
+mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
 ```
 
 You can see <a href="https://github.com/dongjunkun/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Example</a>
 
 ##About me
-A android developer, like android,like life, like creative,like open source,like doing something interesting
+A android developer, like android,like google,like open source,like doing any thing interesting

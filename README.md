@@ -10,13 +10,13 @@ A simple practical multiple condition filter drop down menu,drop down menu style
 First of all,this my first library for github,I read a lot awesome library in create this before,but not find i want effect,so i create this.
 
 ##ScreenShot
-![jj](https://github.com/dongjunkun/MultipleDropDownMenu/blob/master/art/simple.gif)
+![jj](https://github.com/dongjunkun/DropDownMenu/blob/master/art/simple.gif)
 
 <a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download Demo</a>
 
 ##Usage
 ####Step1
-add DropDownMenu in your xml
+Add DropDownMenu in your xml
 ```
 <com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
@@ -39,7 +39,7 @@ add DropDownMenu in your xml
 ```
 
 ####Step2
-Now we just need invoke DropDownMenu setDropDownMenu(),example below
+Now we just need invoke setDropDownMenu(),example below
 ```
 mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
 ```

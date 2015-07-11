@@ -34,7 +34,6 @@ Add DropDownMenu in your xml
     app:ddmaskColor="@color/mask_color"
     app:ddmenuBackgroundColor="@color/white"
     app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
-    app:ddtextPadding="20px"
     tools:context=".MainActivity"/>
 ```
 

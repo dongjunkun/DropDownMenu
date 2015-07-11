@@ -8,7 +8,6 @@
         <attr name="ddtextUnselectedColor" format="color"/>
         <attr name="ddmenuBackgroundColor" format="color"/>
         <attr name="ddmaskColor" format="color"/>
-        <attr name="ddtextPadding" format="dimension"/>
         <attr name="ddmenuTextSize" format="dimension"/>
         <attr name="ddmenuSelectedIcon" format="reference"/>
         <attr name="ddmenuUnselectedIcon" format="reference"/>

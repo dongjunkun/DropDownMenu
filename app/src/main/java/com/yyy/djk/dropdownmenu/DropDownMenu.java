@@ -41,7 +41,6 @@ public class DropDownMenu extends LinearLayout {
     private int textSelectedColor = 0xff890c85;
     private int textUnselectedColor = 0xff111111;
     private int maskColor = 0x88888888;
-    private int textPadding = 12;
     private int menuTextSize = 14;
 
     private int menuSelectedIcon = R.mipmap.drop_down_selected_icon;
@@ -69,7 +68,6 @@ public class DropDownMenu extends LinearLayout {
         textUnselectedColor = a.getColor(R.styleable.DropDownMenu_ddtextUnselectedColor, textUnselectedColor);
         menuBackgroundColor = a.getColor(R.styleable.DropDownMenu_ddmenuBackgroundColor, menuBackgroundColor);
         maskColor = a.getColor(R.styleable.DropDownMenu_ddmaskColor, maskColor);
-        textPadding = a.getDimensionPixelOffset(R.styleable.DropDownMenu_ddtextPadding, textPadding);
         menuTextSize = a.getDimensionPixelOffset(R.styleable.DropDownMenu_ddmenuTextSize, menuTextSize);
 
         menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuSelectedIcon, menuSelectedIcon);
@@ -118,8 +116,7 @@ public class DropDownMenu extends LinearLayout {
             });
             menu.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
             menu.setText(texts.get(i));
-            int padding = pxToDp(textPadding);
-            menu.setPadding(padding, padding, padding, padding);
+            menu.setPadding(pxToDp(5), pxToDp(12), pxToDp(5), pxToDp(12));
             navigateMenuView.addView(menu);
             if (i < texts.size() - 1) {
                 View view = new View(getContext());

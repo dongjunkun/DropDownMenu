@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
     <translate
-        android:duration="180"
-        android:fromXDelta="0"
+        android:duration="@integer/drop_down_menu_animation_duration"
         android:fillAfter="true"
         android:fillBefore="true"
-        android:toXDelta="0"
+        android:fromXDelta="0"
         android:fromYDelta="0%"
-        android:toYDelta="-100%"
-        />
+        android:toXDelta="0"
+        android:toYDelta="-100%" />
 </set>

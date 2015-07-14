@@ -194,7 +194,6 @@ public class DropDownMenu extends LinearLayout {
         ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textUnselectedColor);
         ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
                 getResources().getDrawable(menuUnselectedIcon), null);
-        popupMenuViews.getChildAt(current_tab_position / 2 + 1).clearAnimation();
         popupMenuViews.getChildAt(current_tab_position / 2 + 1).startAnimation(dropdown_out);
         current_tab_position = -1;
         maskView.startAnimation(dropdown_mask_out);
@@ -239,10 +238,8 @@ public class DropDownMenu extends LinearLayout {
                 } else {
                     if (current_tab_position == -1) {
                         popupMenuViews.setVisibility(View.VISIBLE);
-                        maskView.clearAnimation();
                         maskView.startAnimation(dropdown_mask_in);
                         popupMenuViews.getChildAt(i / 2 + 1).setVisibility(View.VISIBLE);
-                        popupMenuViews.getChildAt(i / 2 + 1).clearAnimation();
                         popupMenuViews.getChildAt(i / 2 + 1).startAnimation(dropdown_in);
                     } else {
                         popupMenuViews.getChildAt(i / 2 + 1).setVisibility(View.VISIBLE);

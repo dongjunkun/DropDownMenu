@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDropDownMenu.setMenuText(constellationView, constellationPosition == 0 ? headers[3] :constellations[constellationPosition]);
+                mDropDownMenu.setTabText(constellationPosition == 0 ? headers[3] : constellations[constellationPosition]);
                 mDropDownMenu.closeMenu();
             }
         });
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cityAdapter.setCheckItem(position);
-                mDropDownMenu.setMenuText(cityView, position == 0 ? headers[0] : citys[position]);
+                mDropDownMenu.setTabText(position == 0 ? headers[0] : citys[position]);
                 mDropDownMenu.closeMenu();
             }
         });
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ageAdapter.setCheckItem(position);
-                mDropDownMenu.setMenuText(ageView,position == 0 ? headers[1] : ages[position]);
+                mDropDownMenu.setTabText(position == 0 ? headers[1] : ages[position]);
                 mDropDownMenu.closeMenu();
             }
         });
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 sexAdapter.setCheckItem(position);
-                mDropDownMenu.setMenuText(sexView,position == 0 ? headers[2] : sexs[position]);
+                mDropDownMenu.setTabText(position == 0 ? headers[2] : sexs[position]);
                 mDropDownMenu.closeMenu();
             }
         });

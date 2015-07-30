@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
-    <alpha
-        android:duration="@integer/drop_down_menu_animation_duration"
-        android:fillAfter="true"
-        android:fillBefore="true"
-        android:fromAlpha="0"
-        android:toAlpha="1.0"/>
-</set>

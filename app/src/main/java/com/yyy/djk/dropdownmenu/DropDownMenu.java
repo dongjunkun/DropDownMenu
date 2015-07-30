@@ -2,7 +2,6 @@ package com.yyy.djk.dropdownmenu;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -11,8 +10,6 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,9 +35,6 @@ public class DropDownMenu extends LinearLayout {
     //tabMenuView里面选中的tab位置，-1表示未选中
     private int current_tab_position = -1;
 
-    //分别是菜单进入，弹出，遮罩View进入，弹出动画
-    private Animation dropdown_in, dropdown_out, dropdown_mask_in, dropdown_mask_out;
-
     //分割线颜色
     private int dividerColor = 0xffcccccc;
     //tab选中颜色
@@ -56,10 +50,6 @@ public class DropDownMenu extends LinearLayout {
     private int menuSelectedIcon = R.mipmap.drop_down_selected_icon;
     //tab未选中图标
     private int menuUnselectedIcon = R.mipmap.drop_down_unselected_icon;
-
-    private boolean hasAnimation = true;
-
-    private boolean tabClickable = false;
 
 
     public DropDownMenu(Context context) {
@@ -108,12 +98,6 @@ public class DropDownMenu extends LinearLayout {
         containerView = new FrameLayout(context);
         containerView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
         addView(containerView, 2);
-
-        //初始化动画
-        dropdown_in = AnimationUtils.loadAnimation(context, R.anim.dropdown_in);
-        dropdown_out = AnimationUtils.loadAnimation(context, R.anim.dropdown_out);
-        dropdown_mask_in = AnimationUtils.loadAnimation(context, R.anim.dropdown_mask_in);
-        dropdown_mask_out = AnimationUtils.loadAnimation(context, R.anim.dropdown_mask_out);
 
     }
 
@@ -170,17 +154,7 @@ public class DropDownMenu extends LinearLayout {
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                tabClickable = false;
-                setTabClickable(tabClickable);
                 switchMenu(tab);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        tabClickable = true;
-                        setTabClickable(tabClickable);
-                    }
-                },200);
-
             }
         });
         tabMenuView.addView(tab);
@@ -202,8 +176,8 @@ public class DropDownMenu extends LinearLayout {
         ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
     }
 
-    public void setTabClickable(boolean clickable){
-        for (int i = 0; i < tabMenuView.getChildCount(); i= i+2) {
+    public void setTabClickable(boolean clickable) {
+        for (int i = 0; i < tabMenuView.getChildCount(); i = i + 2) {
             tabMenuView.getChildAt(i).setClickable(clickable);
         }
     }
@@ -215,31 +189,8 @@ public class DropDownMenu extends LinearLayout {
         ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textUnselectedColor);
         ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
                 getResources().getDrawable(menuUnselectedIcon), null);
-        if (hasAnimation) {
-            popupMenuViews.getChildAt(current_tab_position / 2 + 1).startAnimation(dropdown_out);
-        } else {
-            popupMenuViews.setVisibility(View.GONE);
-        }
+        popupMenuViews.setVisibility(View.GONE);
         current_tab_position = -1;
-        if (hasAnimation)
-            maskView.startAnimation(dropdown_mask_out);
-
-        dropdown_out.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                popupMenuViews.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
 
     }
 
@@ -266,11 +217,7 @@ public class DropDownMenu extends LinearLayout {
                 } else {
                     if (current_tab_position == -1) {
                         popupMenuViews.setVisibility(View.VISIBLE);
-                        if (hasAnimation)
-                            maskView.startAnimation(dropdown_mask_in);
                         popupMenuViews.getChildAt(i / 2 + 1).setVisibility(View.VISIBLE);
-                        if (hasAnimation)
-                            popupMenuViews.getChildAt(i / 2 + 1).startAnimation(dropdown_in);
                     } else {
                         popupMenuViews.getChildAt(i / 2 + 1).setVisibility(View.VISIBLE);
                     }

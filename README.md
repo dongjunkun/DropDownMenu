@@ -1,49 +1,41 @@
-## DropDownMenu
+## 简介
+一个实用的多条件筛选菜单，在很多App上都能看到这个效果，如美团，爱奇艺电影票等
 
-A simple practical multiple condition filter drop down menu,drop down menu style can according to your project fully customization,the repositories just offer a simple framework,not PopupWindow implement,better experience,if you have any question or have new idea about this library,via issues or pull request this library,welcome star or fork！
-
-##Feature
- - Fully customization, you can add any view or viewGroup,do you want do
- - Not PopupWindow implement, better experience effort
-
-##Why create this library?
-First of all,this my first library for github,I read a lot awesome library in create this before,but not find i want effect,so i create this.
+##特色
+ - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏等
+ - 并非用popupWindow实现，无卡顿
 
 ##ScreenShot
 <img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/simple.gif"/>
 
 <a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download Demo</a>
 
-##Usage
-####Step1
-Add DropDownMenu in your xml
+##使用
+添加DropDownMenu 到你的布局文件，如下
 ```
 <com.yyy.djk.dropdownmenu.DropDownMenu
     android:id="@+id/dropDownMenu"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:ddmenuTextSize="13px"
-    app:ddtextUnselectedColor="@color/drop_down_unselected"
-    app:ddtextSelectedColor="@color/drop_down_selected"
-    app:dddividerColor="@color/gray"
-    app:ddunderlineColor="@color/gray"
-    app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon"
-    app:ddmaskColor="@color/mask_color"
-    app:ddmenuBackgroundColor="@color/white"
-    app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
-    tools:context=".MainActivity"/>
+    app:ddmenuTextSize="13px" //tab字体大小
+    app:ddtextUnselectedColor="@color/drop_down_unselected" //tab未选中颜色
+    app:ddtextSelectedColor="@color/drop_down_selected" //tab选中颜色
+    app:dddividerColor="@color/gray"    //分割线颜色
+    app:ddunderlineColor="@color/gray"  //下划线颜色
+    app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon" //tab选中状态图标
+    app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"//tab未选中状态图标
+    app:ddmaskColor="@color/mask_color"     //遮罩颜色，一般是半透明
+    app:ddmenuBackgroundColor="@color/white" //tab 背景颜色
+    ...
+ />
 ```
+我们只需要在java代码中调用下面的代码
 
-####Step2
-Now we just need invoke setDropDownMenu(),example below
 ```
-mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
+ //tabs 所有标题，popupViews  所有菜单，contentView 内容
+mDropDownMenu.setDropDownMenu(tabs, popupViews, contentView);
 ```
+如果你要了解更多，可以直接看源码  <a href="https://github.com/dongjunkun/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Example</a>
 
-You can see <a href="https://github.com/dongjunkun/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Example</a>
-
-##About me
-A android developer, like android,like google,like open source,like doing any thing interesting
+##关于我
+热爱新技术，喜欢编程 QQ：1440418246

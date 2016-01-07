@@ -40,4 +40,4 @@ mDropDownMenu.setDropDownMenu(tabs, popupViews, contentView);
 如果你要了解更多，可以直接看源码  <a href="https://github.com/dongjunkun/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Example</a>
 
 ##关于我
-热爱新技术，喜欢编程 QQ：1440418246
+简书[dongjunkun](http://www.jianshu.com/users/f07458c1a8f3/latest_articles)

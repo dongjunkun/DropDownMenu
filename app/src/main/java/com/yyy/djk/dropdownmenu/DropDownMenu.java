@@ -176,7 +176,9 @@ public class DropDownMenu extends LinearLayout {
      * @param text
      */
     public void setTabText(String text) {
-        ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
+        if (current_tab_position != 1) {
+            ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
+        }
     }
 
     public void setTabClickable(boolean clickable) {
@@ -193,9 +195,9 @@ public class DropDownMenu extends LinearLayout {
         ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
                 getResources().getDrawable(menuUnselectedIcon), null);
         popupMenuViews.setVisibility(View.GONE);
-        popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(),R.anim.dd_menu_out));
+        popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_out));
         maskView.setVisibility(GONE);
-        maskView.setAnimation(AnimationUtils.loadAnimation(getContext(),R.anim.dd_mask_out));
+        maskView.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_mask_out));
         current_tab_position = -1;
 
     }
@@ -223,9 +225,9 @@ public class DropDownMenu extends LinearLayout {
                 } else {
                     if (current_tab_position == -1) {
                         popupMenuViews.setVisibility(View.VISIBLE);
-                        popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(),R.anim.dd_menu_in));
+                        popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_in));
                         maskView.setVisibility(VISIBLE);
-                        maskView.setAnimation(AnimationUtils.loadAnimation(getContext(),R.anim.dd_mask_in));
+                        maskView.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_mask_in));
                         popupMenuViews.getChildAt(i / 2).setVisibility(View.VISIBLE);
                     } else {
                         popupMenuViews.getChildAt(i / 2).setVisibility(View.VISIBLE);

@@ -76,7 +76,7 @@ public class DropDownMenu extends LinearLayout {
         textUnselectedColor = a.getColor(R.styleable.DropDownMenu_ddtextUnselectedColor, textUnselectedColor);
         menuBackgroundColor = a.getColor(R.styleable.DropDownMenu_ddmenuBackgroundColor, menuBackgroundColor);
         maskColor = a.getColor(R.styleable.DropDownMenu_ddmaskColor, maskColor);
-        menuTextSize = a.getDimensionPixelOffset(R.styleable.DropDownMenu_ddmenuTextSize, menuTextSize);
+        menuTextSize = a.getDimensionPixelSize(R.styleable.DropDownMenu_ddmenuTextSize, menuTextSize);
         menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuSelectedIcon, menuSelectedIcon);
         menuUnselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuUnselectedIcon, menuUnselectedIcon);
         a.recycle();
@@ -147,7 +147,7 @@ public class DropDownMenu extends LinearLayout {
         tab.setSingleLine();
         tab.setEllipsize(TextUtils.TruncateAt.END);
         tab.setGravity(Gravity.CENTER);
-        tab.setTextSize(TypedValue.COMPLEX_UNIT_SP, menuTextSize);
+        tab.setTextSize(TypedValue.COMPLEX_UNIT_PX,menuTextSize);
         tab.setLayoutParams(new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
         tab.setTextColor(textUnselectedColor);
         tab.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);

@@ -2,10 +2,9 @@
     android:id="@+id/dropDownMenu"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:ddmenuTextSize="13px"
+    app:ddmenuTextSize="13sp"
     app:ddtextUnselectedColor="@color/drop_down_unselected"
     app:ddtextSelectedColor="@color/drop_down_selected"
     app:dddividerColor="@color/gray"
@@ -14,4 +13,4 @@
     app:ddmaskColor="@color/mask_color"
     app:ddmenuBackgroundColor="@color/white"
     app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
-    tools:context=".MainActivity"/>
+  />

@@ -4,7 +4,7 @@
 我的博客 <a href="http://blog.csdn.net/djk_dong/article/details/46865929">高仿美团筛选菜单</a>
 
 ##特色
- - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏等
+ - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏效果等
  - 并非用popupWindow实现，无卡顿
 
 ##ScreenShot
@@ -19,7 +19,7 @@
     android:id="@+id/dropDownMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:ddmenuTextSize="13px" //tab字体大小
+    app:ddmenuTextSize="13sp" //tab字体大小
     app:ddtextUnselectedColor="@color/drop_down_unselected" //tab未选中颜色
     app:ddtextSelectedColor="@color/drop_down_selected" //tab选中颜色
     app:dddividerColor="@color/gray"    //分割线颜色

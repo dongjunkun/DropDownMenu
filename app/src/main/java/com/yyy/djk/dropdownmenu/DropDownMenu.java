@@ -176,7 +176,7 @@ public class DropDownMenu extends LinearLayout {
      * @param text
      */
     public void setTabText(String text) {
-        if (current_tab_position != 1) {
+        if (current_tab_position != -1) {
             ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
         }
     }
@@ -191,14 +191,16 @@ public class DropDownMenu extends LinearLayout {
      * 关闭菜单
      */
     public void closeMenu() {
-        ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textUnselectedColor);
-        ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
-                getResources().getDrawable(menuUnselectedIcon), null);
-        popupMenuViews.setVisibility(View.GONE);
-        popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_out));
-        maskView.setVisibility(GONE);
-        maskView.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_mask_out));
-        current_tab_position = -1;
+        if (current_tab_position != -1) {
+            ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textUnselectedColor);
+            ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
+                    getResources().getDrawable(menuUnselectedIcon), null);
+            popupMenuViews.setVisibility(View.GONE);
+            popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_out));
+            maskView.setVisibility(GONE);
+            maskView.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_mask_out));
+            current_tab_position = -1;
+        }
 
     }
 

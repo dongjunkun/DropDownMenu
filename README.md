@@ -4,6 +4,7 @@
 我的博客 [自己造轮子--android常用多条件帅选菜单实现思路（类似美团，爱奇艺电影票下拉菜单）](http://www.jianshu.com/p/d9407f799d2d)
 
 ##特色
+ - 支持多级菜单
  - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏效果等
  - 并非用popupWindow实现，无卡顿
 
@@ -11,6 +12,9 @@
 <img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/simple.gif"/>
 
 <a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download Demo</a>
+
+或者扫描二维码
+<img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/download.png"/>
 
 ##使用
 添加DropDownMenu 到你的布局文件，如下

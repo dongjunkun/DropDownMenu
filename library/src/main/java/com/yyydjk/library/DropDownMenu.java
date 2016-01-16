@@ -1,4 +1,4 @@
-package com.yyy.djk.dropdownmenu;
+package com.yyydjk.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,8 +14,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.yyy.djk.multipledropdownmenu.R;
 
 import java.util.List;
 

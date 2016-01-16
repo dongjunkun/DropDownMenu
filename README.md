@@ -16,6 +16,22 @@
 或者扫描二维码
 <img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/download.png"/>
 
+##Gradle Dependency
+
+```
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+    ...
+    compile 'com.github.dongjunkun:DropDownMenu:1.0.1'
+}
+```
+
 ##使用
 添加DropDownMenu 到你的布局文件，如下
 ```

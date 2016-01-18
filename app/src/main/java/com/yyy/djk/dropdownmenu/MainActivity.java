@@ -11,7 +11,6 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.yyy.djk.multipledropdownmenu.R;
 import com.yyydjk.library.DropDownMenu;
 
 import java.util.ArrayList;

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.yyy.djk.multipledropdownmenu.R;
 
 import java.util.List;
 

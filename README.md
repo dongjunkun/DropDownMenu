@@ -27,8 +27,7 @@ allprojects {
 }
 
 dependencies {
-    ...
-    compile 'com.github.dongjunkun:DropDownMenu:1.0.1'
+    compile 'com.github.dongjunkun:DropDownMenu:1.0.3'
 }
 ```
 

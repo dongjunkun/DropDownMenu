@@ -11,9 +11,10 @@
 ##ScreenShot
 <img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/simple.gif"/>
 
-<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download Demo</a>
+<a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download APK</a>
 
 或者扫描二维码
+
 <img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/download.png"/>
 
 ##Gradle Dependency

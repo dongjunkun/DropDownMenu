@@ -46,9 +46,9 @@ public class DropDownMenu extends LinearLayout {
     private int menuTextSize = 14;
 
     //tab选中图标
-    private int menuSelectedIcon = R.mipmap.drop_down_selected_icon;
+    private int menuSelectedIcon;
     //tab未选中图标
-    private int menuUnselectedIcon = R.mipmap.drop_down_unselected_icon;
+    private int menuUnselectedIcon;
 
 
     public DropDownMenu(Context context) {

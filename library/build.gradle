@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.dongjunkun'
+group = 'com.github.dongjunkun'
 version = '1.0.0'
 
 android {

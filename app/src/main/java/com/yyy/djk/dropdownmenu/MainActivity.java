@@ -2,12 +2,14 @@ package com.yyy.djk.dropdownmenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -130,6 +132,11 @@ public class MainActivity extends AppCompatActivity {
 
         //init dropdownview
         mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
+        //测试tabView扩展功能
+        TextView textView= (TextView) getLayoutInflater().inflate(R.layout.tab_text,null);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
+        textView.setText("2位置");
+        mDropDownMenu.addTab(textView,2);
     }
 
     @Override

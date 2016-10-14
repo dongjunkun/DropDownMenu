@@ -3,6 +3,7 @@ package com.yyydjk.library;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -78,7 +79,6 @@ public class DropDownMenu extends LinearLayout {
         menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuSelectedIcon, menuSelectedIcon);
         menuUnselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuUnselectedIcon, menuUnselectedIcon);
         a.recycle();
-
         //初始化tabMenuView并添加到tabMenuView
         tabMenuView = new LinearLayout(context);
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -141,24 +141,20 @@ public class DropDownMenu extends LinearLayout {
     }
 
     private void addTab(@NonNull List<String> tabTexts, int i) {
-        final TextView tab = new TextView(getContext());
-        tab.setSingleLine();
-        tab.setEllipsize(TextUtils.TruncateAt.END);
-        tab.setGravity(Gravity.CENTER);
-        tab.setTextSize(TypedValue.COMPLEX_UNIT_PX,menuTextSize);
+        final View tab = inflate(getContext(), R.layout.tab_item, null);
         tab.setLayoutParams(new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
-        tab.setTextColor(textUnselectedColor);
-        tab.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
-        tab.setText(tabTexts.get(i));
-        tab.setPadding(dpTpPx(5), dpTpPx(12), dpTpPx(5), dpTpPx(12));
-        //添加点击事件
+        TextView textView = getTabTextView(tab);
+        textView.setText(tabTexts.get(i));
+        textView.setTextColor(textUnselectedColor);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
+        textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
+        tabMenuView.addView(tab);
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchMenu(tab);
             }
         });
-        tabMenuView.addView(tab);
         //添加分割线
         if (i < tabTexts.size() - 1) {
             View view = new View(getContext());
@@ -169,13 +165,29 @@ public class DropDownMenu extends LinearLayout {
     }
 
     /**
+     * 获取tabView中的textView
+     *
+     * @param tabView
+     * @return
+     */
+    private TextView getTabTextView(View tabView) {
+        TextView tabtext = null;
+        if (tabView instanceof ViewGroup) {
+            tabtext = (TextView) tabView.findViewById(R.id.tv_tab);
+        } else {
+            tabtext = (TextView) tabView;
+        }
+        return tabtext;
+    }
+
+    /**
      * 改变tab文字
      *
      * @param text
      */
     public void setTabText(String text) {
         if (current_tab_position != -1) {
-            ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
+            getTabTextView(tabMenuView.getChildAt(current_tab_position)).setText(text);
         }
     }
 
@@ -190,8 +202,9 @@ public class DropDownMenu extends LinearLayout {
      */
     public void closeMenu() {
         if (current_tab_position != -1) {
-            ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textUnselectedColor);
-            ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
+            TextView textView=getTabTextView(tabMenuView.getChildAt(current_tab_position));
+            textView.setTextColor(textUnselectedColor);
+            textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
                     getResources().getDrawable(menuUnselectedIcon), null);
             popupMenuViews.setVisibility(View.GONE);
             popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_out));
@@ -233,13 +246,15 @@ public class DropDownMenu extends LinearLayout {
                         popupMenuViews.getChildAt(i / 2).setVisibility(View.VISIBLE);
                     }
                     current_tab_position = i;
-                    ((TextView) tabMenuView.getChildAt(i)).setTextColor(textSelectedColor);
-                    ((TextView) tabMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
+                    TextView textView = getTabTextView(tabMenuView.getChildAt(i));
+                    textView.setTextColor(textSelectedColor);
+                    textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
                             getResources().getDrawable(menuSelectedIcon), null);
                 }
             } else {
-                ((TextView) tabMenuView.getChildAt(i)).setTextColor(textUnselectedColor);
-                ((TextView) tabMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
+                TextView textView = getTabTextView(tabMenuView.getChildAt(i));
+                textView.setTextColor(textUnselectedColor);
+                textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
                         getResources().getDrawable(menuUnselectedIcon), null);
                 popupMenuViews.getChildAt(i / 2).setVisibility(View.GONE);
             }

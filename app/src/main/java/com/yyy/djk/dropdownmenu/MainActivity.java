@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
         //测试tabView扩展功能
         TextView textView= (TextView) getLayoutInflater().inflate(R.layout.tab_text,null);
         textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
-        textView.setText("2位置");
-        mDropDownMenu.addTab(textView,2);
+        textView.setText("所有");
+        mDropDownMenu.addTab(textView,0);
     }
 
     @Override

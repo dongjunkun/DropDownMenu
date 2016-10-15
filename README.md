@@ -1,16 +1,19 @@
 [![](https://jitpack.io/v/dongjunkun/DropDownMenu.svg)](https://jitpack.io/#dongjunkun/DropDownMenu)
 
 ## 简介
-扩展的思路 可以看我的(简书)[http://www.jianshu.com/p/719267a0df32]
+扩展的思路 可以看我的[简书](http://www.jianshu.com/p/719267a0df32)
 
 ##特色
  - 支持多级菜单
  - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏效果等
  - 并非用popupWindow实现，无卡顿
+ 
 ##本fork项目扩展
  - 支持 tabView的样式扩展
  - 支持手动添加非下拉tabView
+ 
 ##ScreenShot
+
 ![Paste_Image.png](https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/simple.gif)
 
 ![箭头居中而不是居最右](http://upload-images.jianshu.io/upload_images/1682632-a7d108a623dabb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

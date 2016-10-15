@@ -137,6 +137,12 @@ public class MainActivity extends AppCompatActivity {
         textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
         textView.setText("所有");
         mDropDownMenu.addTab(textView,0);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDropDownMenu.closeMenu();
+            }
+        });
     }
 
     @Override

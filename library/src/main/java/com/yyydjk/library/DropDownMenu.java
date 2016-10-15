@@ -271,11 +271,14 @@ public class DropDownMenu extends LinearLayout {
                 TextView textView = getTabTextView(tabMenuView.getChildAt(i));
                 if (textView != null) {
                     textView.setTextColor(textUnselectedColor);
-                    textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                            getResources().getDrawable(menuUnselectedIcon), null);
+
                 }
                 View listView = getListView(tabMenuView.getChildAt(i));
                 if (listView != null) {
+                    if(textView!=null){
+                        textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
+                                getResources().getDrawable(menuUnselectedIcon), null);
+                    }
                     listView.setVisibility(View.GONE);
                 }
             }

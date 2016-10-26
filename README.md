@@ -16,7 +16,11 @@
  - 支持 tabView的样式扩展
  
 ![箭头居中而不是居最右](http://upload-images.jianshu.io/upload_images/1682632-a7d108a623dabb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
- 
+
+ 应读者要求加了箭头在文本的方向属性
+![添加属性](http://upload-images.jianshu.io/upload_images/1682632-c2375005081d7884.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://upload-images.jianshu.io/upload_images/1682632-a9830a6500806c6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
  - 支持手动添加非下拉tabView
 
 ![可以在tab位置中插入自己需要的tabView](http://upload-images.jianshu.io/upload_images/1682632-54018e2db4c6bc13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

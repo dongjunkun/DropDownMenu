@@ -2,14 +2,12 @@ package com.yyydjk.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.SparseArray;
+import android.util.Log;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
@@ -18,9 +16,49 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
+class Orientation {
+    Context mContext;
+
+    public Orientation(Context context) {
+        mContext = context;
+    }
+
+    public static final int left = 0;
+    public static final int top = 1;
+    public static final int right = 2;
+    public static final int bottom = 3;
+    public Drawable dLeft = null;
+    public Drawable dTop = null;
+    public Drawable dRight = null;
+    public Drawable dBottom = null;
+
+    /**
+     * 初始化位置参数
+     *
+     * @param orientation
+     * @param menuUnselectedIcon
+     */
+    public void init(int orientation, int menuUnselectedIcon) {
+
+        Drawable drawable = mContext.getResources().getDrawable(menuUnselectedIcon);
+        switch (orientation) {
+            case left:
+                dLeft = drawable;
+                break;
+            case top:
+                dTop = drawable;
+                break;
+            case right:
+                dRight = drawable;
+                break;
+            case bottom:
+                dBottom = drawable;
+                break;
+        }
+    }
+}
 
 /**
  * Created by dongjunkun on 2015/6/17.
@@ -49,7 +87,9 @@ public class DropDownMenu extends LinearLayout {
     private int maskColor = 0x88888888;
     //tab字体大小
     private int menuTextSize = 14;
-
+    //icon的方向
+    private int iconOrientation=Orientation.right;//默认右则
+    private Orientation mOrientation;
     //tab选中图标
     private int menuSelectedIcon;
     //tab未选中图标
@@ -82,7 +122,12 @@ public class DropDownMenu extends LinearLayout {
         menuTextSize = a.getDimensionPixelSize(R.styleable.DropDownMenu_ddmenuTextSize, menuTextSize);
         menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuSelectedIcon, menuSelectedIcon);
         menuUnselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuUnselectedIcon, menuUnselectedIcon);
+        iconOrientation=a.getInt(R.styleable.DropDownMenu_ddmenuIconOrientation,iconOrientation);
         a.recycle();
+        //初始化位置参数
+        mOrientation=new Orientation(getContext());
+        mOrientation.init(iconOrientation,menuUnselectedIcon);
+
         //初始化tabMenuView并添加到tabMenuView
         tabMenuView = new LinearLayout(context);
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -101,6 +146,7 @@ public class DropDownMenu extends LinearLayout {
         containerView = new FrameLayout(context);
         containerView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
         addView(containerView, 2);
+
 
     }
 
@@ -155,7 +201,7 @@ public class DropDownMenu extends LinearLayout {
         View view = new View(getContext());
         view.setLayoutParams(new LayoutParams(dpTpPx(0.5f), ViewGroup.LayoutParams.MATCH_PARENT));
         view.setBackgroundColor(dividerColor);
-        tabMenuView.addView(view,index * 2+1);
+        tabMenuView.addView(view, index * 2 + 1);
     }
 
     private void addTab(@NonNull List<String> tabTexts, int i) {
@@ -165,7 +211,8 @@ public class DropDownMenu extends LinearLayout {
         textView.setText(tabTexts.get(i));
         textView.setTextColor(textUnselectedColor);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
-        textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
+        textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft, mOrientation.dTop,
+                mOrientation.dRight, mOrientation.dBottom);
         tabMenuView.addView(tab);
         tab.setOnClickListener(new OnClickListener() {
             @Override
@@ -219,8 +266,8 @@ public class DropDownMenu extends LinearLayout {
         if (current_tab_position != -1) {
             TextView textView = getTabTextView(tabMenuView.getChildAt(current_tab_position));
             textView.setTextColor(textUnselectedColor);
-            textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                    getResources().getDrawable(menuUnselectedIcon), null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft, mOrientation.dTop,
+                    mOrientation.dRight, mOrientation.dBottom);
             popupMenuViews.setVisibility(View.GONE);
             popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_out));
             maskView.setVisibility(GONE);
@@ -264,8 +311,8 @@ public class DropDownMenu extends LinearLayout {
                     current_tab_position = i;
                     TextView textView = getTabTextView(tabMenuView.getChildAt(i));
                     textView.setTextColor(textSelectedColor);
-                    textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                            getResources().getDrawable(menuSelectedIcon), null);
+                    textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft, mOrientation.dTop,
+                            mOrientation.dRight, mOrientation.dBottom);
                 }
             } else {
                 TextView textView = getTabTextView(tabMenuView.getChildAt(i));
@@ -275,9 +322,9 @@ public class DropDownMenu extends LinearLayout {
                 }
                 View listView = getListView(tabMenuView.getChildAt(i));
                 if (listView != null) {
-                    if(textView!=null){
-                        textView.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                                getResources().getDrawable(menuUnselectedIcon), null);
+                    if (textView != null) {
+                        textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft, mOrientation.dTop,
+                                mOrientation.dRight, mOrientation.dBottom);
                     }
                     listView.setVisibility(View.GONE);
                 }

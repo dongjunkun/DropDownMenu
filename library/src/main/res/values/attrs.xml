@@ -11,5 +11,14 @@
         <attr name="ddmenuTextSize" format="dimension"/>
         <attr name="ddmenuSelectedIcon" format="reference"/>
         <attr name="ddmenuUnselectedIcon" format="reference"/>
+        <attr name="ddmenuIconOrientation">
+            <flag name="left" value="0"/>
+
+            <flag name="top" value="1"/>
+
+            <flag name="right" value="2"/>
+
+            <flag name="bottom" value="3"/>
+        </attr>
     </declare-styleable>
 </resources>

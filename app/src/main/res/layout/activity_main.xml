@@ -9,6 +9,7 @@
     app:ddtextSelectedColor="@color/drop_down_selected"
     app:dddividerColor="@color/gray"
     app:ddunderlineColor="@color/gray"
+    app:ddmenuIconOrientation="left"
     app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon"
     app:ddmaskColor="@color/mask_color"
     app:ddmenuBackgroundColor="@color/white"

@@ -11,6 +11,7 @@
         <attr name="ddmenuTextSize" format="dimension"/>
         <attr name="ddmenuSelectedIcon" format="reference"/>
         <attr name="ddmenuUnselectedIcon" format="reference"/>
+        <attr name="dddividerHeight" format="dimension"></attr>
         <attr name="ddmenuIconOrientation">
             <flag name="left" value="0"/>
 

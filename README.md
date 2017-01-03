@@ -21,6 +21,7 @@
  
 ![方向属性](http://upload-images.jianshu.io/upload_images/1682632-c2375005081d7884.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![效果图](http://upload-images.jianshu.io/upload_images/1682632-a9830a6500806c6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![分隔线高度属性](http://upload-images.jianshu.io/upload_images/1682632-14683c5a45292208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![效果图](http://upload-images.jianshu.io/upload_images/1682632-74b76c2474762382.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  - 支持手动添加非下拉tabView

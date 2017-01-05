@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -80,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 mDropDownMenu.closeMenu();
             }
         });
-
+        //添加时间 2017年1月5日21:28:22
+        //keyboard3 为支持可以外部控制popViews里的View可以设置layoutParams。注意必须是FrameLayout的布局参数
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(200, 100, 200,0);
+        cityView.setLayoutParams(layoutParams);
         //init popupViews
         popupViews.add(cityView);
         popupViews.add(ageView);

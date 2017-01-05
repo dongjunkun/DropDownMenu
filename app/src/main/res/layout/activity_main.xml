@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:ddmenuTextSize="13sp"
-    app:dddividerHeight="10dp"
     app:ddtextUnselectedColor="@color/drop_down_unselected"
     app:ddtextSelectedColor="@color/drop_down_selected"
     app:dddividerColor="@color/gray"

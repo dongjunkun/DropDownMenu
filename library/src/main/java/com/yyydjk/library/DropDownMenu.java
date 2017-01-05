@@ -199,8 +199,10 @@ public class DropDownMenu extends LinearLayout {
         containerView.addView(popupMenuViews, 2);
 
         for (int i = 0; i < popupViews.size(); i++) {
-            popupViews.get(i).setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams
-                    .MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            if(popupViews.get(i).getLayoutParams()==null){
+                popupViews.get(i).setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams
+                        .MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            }
             popupMenuViews.addView(popupViews.get(i), i);
         }
 

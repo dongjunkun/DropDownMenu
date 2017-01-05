@@ -24,7 +24,10 @@
  ------
 ![分隔线高度属性](http://upload-images.jianshu.io/upload_images/1682632-14683c5a45292208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![效果图](http://upload-images.jianshu.io/upload_images/1682632-74b76c2474762382.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+-------
+为popupWindows集合的view增加了对LayoutParams的支持。
+![代码图](http://upload-images.jianshu.io/upload_images/1682632-e65f5c4edefc1b1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![效果图](http://upload-images.jianshu.io/upload_images/1682632-86ef98adaf6c8d44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 - 支持手动添加非下拉tabView
 
 ![可以在tab位置中插入自己需要的tabView](http://upload-images.jianshu.io/upload_images/1682632-54018e2db4c6bc13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

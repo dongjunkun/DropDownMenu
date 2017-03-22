@@ -6,12 +6,10 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -162,6 +160,7 @@ public class DropDownMenu extends LinearLayout {
 
     }
 
+
     /**
      * 初始化DropDownMenu
      *
@@ -215,8 +214,16 @@ public class DropDownMenu extends LinearLayout {
      * @param index 0start
      */
     public void addTab(View tab, int index) {
+        if(index==(tabMenuView.getChildCount()+1)/2){
+            addTabEnd(tab);
+            return;
+        }
         tabMenuView.addView(tab, index * 2);
         tabMenuView.addView(getDividerView(), index * 2 + 1);
+    }
+    public void addTabEnd(View tab){
+        tabMenuView.addView(getDividerView(), tabMenuView.getChildCount());
+        tabMenuView.addView(tab, tabMenuView.getChildCount());
     }
 
     private void addTab(@NonNull List<String> tabTexts, int i) {
@@ -237,7 +244,7 @@ public class DropDownMenu extends LinearLayout {
         });
 
         //添加分割线
-        if (i < tabTexts.size() - 1) {
+        if (i < tabTexts.size()-1) {
             tabMenuView.addView(getDividerView());
         }
         dropTabViews.add(tab);

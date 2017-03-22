@@ -14,4 +14,10 @@
     app:ddmaskColor="@color/mask_color"
     app:ddmenuBackgroundColor="@color/white"
     app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
-  />
+  >
+    <TextView
+        android:background="#0f0"
+        android:layout_width="100dp"
+        android:text="dajiahao"
+        android:layout_height="200dp"/>
+</com.yyydjk.library.DropDownMenu>

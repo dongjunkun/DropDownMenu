@@ -2,7 +2,6 @@ package com.yyy.djk.dropdownmenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textView= (TextView) getLayoutInflater().inflate(R.layout.tab_text,null);
         textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
         textView.setText("所有");
-        mDropDownMenu.addTab(textView,0);
+        mDropDownMenu.addTab(textView,4);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

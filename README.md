@@ -30,7 +30,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.dongjunkun:DropDownMenu:1.0.3'
+    compile 'com.github.dongjunkun:DropDownMenu:1.0.4'
 }
 ```
 
@@ -50,6 +50,7 @@ dependencies {
     app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"//tab未选中状态图标
     app:ddmaskColor="@color/mask_color"     //遮罩颜色，一般是半透明
     app:ddmenuBackgroundColor="@color/white" //tab 背景颜色
+    app:ddmenuMenuHeightPercent="0.5" 菜单的最大高度，根据屏幕高度的百分比设置
     ...
  />
 ```

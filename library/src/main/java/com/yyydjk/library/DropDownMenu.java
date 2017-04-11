@@ -128,6 +128,9 @@ public class DropDownMenu extends LinearLayout {
         });
         containerView.addView(maskView, 1);
         maskView.setVisibility(GONE);
+        if (containerView.getChildAt(2) != null){
+            containerView.removeViewAt(2);
+        }
 
         popupMenuViews = new FrameLayout(getContext());
         popupMenuViews.setVisibility(GONE);

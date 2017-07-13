@@ -5,5 +5,5 @@
 .DS_Store
 /build
 /captures
-
+*.iml
 .idea

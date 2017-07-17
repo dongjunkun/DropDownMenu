@@ -11,6 +11,6 @@
         <attr name="ddm_menuTextSize" format="dimension" />
         <attr name="ddm_menuSelectedIcon" format="reference" />
         <attr name="ddm_menuUnselectedIcon" format="reference" />
-        <attr name="ddm_menuMenuHeightPercent" format="float" />
+        <attr name="ddm_menuHeightPercent" format="float" />
     </declare-styleable>
 </resources>

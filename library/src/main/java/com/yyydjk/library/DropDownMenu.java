@@ -20,6 +20,9 @@ import java.util.List;
 
 class Orientation {
     Context mContext;
+    private Drawable unSelectedDrawable;
+    private Drawable selectedDrawable;
+    private int orientation;
 
     public Orientation(Context context) {
         mContext = context;
@@ -29,10 +32,22 @@ class Orientation {
     public static final int top = 1;
     public static final int right = 2;
     public static final int bottom = 3;
-    public Drawable dLeft = null;
-    public Drawable dTop = null;
-    public Drawable dRight = null;
-    public Drawable dBottom = null;
+
+    public Drawable getLeft(boolean close) {
+        return orientation == left ? (close ? unSelectedDrawable : selectedDrawable) : null;
+    }
+
+    public Drawable getTop(boolean close) {
+        return orientation == top ? (close ? unSelectedDrawable : selectedDrawable) : null;
+    }
+
+    public Drawable getRight(boolean close) {
+        return orientation == right ? (close ? unSelectedDrawable : selectedDrawable) : null;
+    }
+
+    public Drawable getBottom(boolean close) {
+        return orientation == bottom ? (close ? unSelectedDrawable : selectedDrawable) : null;
+    }
 
     /**
      * 初始化位置参数
@@ -40,23 +55,11 @@ class Orientation {
      * @param orientation
      * @param menuUnselectedIcon
      */
-    public void init(int orientation, int menuUnselectedIcon) {
+    public void init(int orientation, int menuSelectedIcon, int menuUnselectedIcon) {
 
-        Drawable drawable = mContext.getResources().getDrawable(menuUnselectedIcon);
-        switch (orientation) {
-            case left:
-                dLeft = drawable;
-                break;
-            case top:
-                dTop = drawable;
-                break;
-            case right:
-                dRight = drawable;
-                break;
-            case bottom:
-                dBottom = drawable;
-                break;
-        }
+        unSelectedDrawable = mContext.getResources().getDrawable(menuUnselectedIcon);
+        selectedDrawable = mContext.getResources().getDrawable(menuSelectedIcon);
+        this.orientation = orientation;
     }
 }
 
@@ -133,7 +136,7 @@ public class DropDownMenu extends LinearLayout {
         a.recycle();
         //初始化位置参数
         mOrientation = new Orientation(getContext());
-        mOrientation.init(iconOrientation, menuUnselectedIcon);
+        mOrientation.init(iconOrientation, menuSelectedIcon, menuUnselectedIcon);
 
         //初始化tabMenuView并添加到tabMenuView
         tabMenuView = new LinearLayout(context);
@@ -198,7 +201,7 @@ public class DropDownMenu extends LinearLayout {
         containerView.addView(popupMenuViews, 2);
 
         for (int i = 0; i < popupViews.size(); i++) {
-            if(popupViews.get(i).getLayoutParams()==null){
+            if (popupViews.get(i).getLayoutParams() == null) {
                 popupViews.get(i).setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams
                         .MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             }
@@ -214,14 +217,15 @@ public class DropDownMenu extends LinearLayout {
      * @param index 0start
      */
     public void addTab(View tab, int index) {
-        if(index==(tabMenuView.getChildCount()+1)/2){
+        if (index == (tabMenuView.getChildCount() + 1) / 2) {
             addTabEnd(tab);
             return;
         }
         tabMenuView.addView(tab, index * 2);
         tabMenuView.addView(getDividerView(), index * 2 + 1);
     }
-    public void addTabEnd(View tab){
+
+    public void addTabEnd(View tab) {
         tabMenuView.addView(getDividerView(), tabMenuView.getChildCount());
         tabMenuView.addView(tab, tabMenuView.getChildCount());
     }
@@ -233,8 +237,7 @@ public class DropDownMenu extends LinearLayout {
         textView.setText(tabTexts.get(i));
         textView.setTextColor(textUnselectedColor);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
-        textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft, mOrientation.dTop,
-                mOrientation.dRight, mOrientation.dBottom);
+        setTextDrawables(textView,false);
         tabMenuView.addView(tab);
         tab.setOnClickListener(new OnClickListener() {
             @Override
@@ -244,7 +247,7 @@ public class DropDownMenu extends LinearLayout {
         });
 
         //添加分割线
-        if (i < tabTexts.size()-1) {
+        if (i < tabTexts.size() - 1) {
             tabMenuView.addView(getDividerView());
         }
         dropTabViews.add(tab);
@@ -294,8 +297,7 @@ public class DropDownMenu extends LinearLayout {
         if (current_tab_position != -1) {
             TextView textView = getTabTextView(tabMenuView.getChildAt(current_tab_position));
             textView.setTextColor(textUnselectedColor);
-            textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft, mOrientation.dTop,
-                    mOrientation.dRight, mOrientation.dBottom);
+            setTextDrawables(textView,true);
             popupMenuViews.setVisibility(View.GONE);
             popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim
                     .dd_menu_out));
@@ -304,6 +306,10 @@ public class DropDownMenu extends LinearLayout {
             current_tab_position = -1;
         }
 
+    }
+    public void setTextDrawables(TextView textview,boolean close){
+        textview.setCompoundDrawablesWithIntrinsicBounds(mOrientation.getLeft(close), mOrientation.getTop(close),
+                mOrientation.getRight(close), mOrientation.getBottom(close));
     }
 
     /**
@@ -325,8 +331,8 @@ public class DropDownMenu extends LinearLayout {
         for (int i = 0; i < tabMenuView.getChildCount(); i = i + 2) {
             if (target == tabMenuView.getChildAt(i)) {
                 if (current_tab_position == i) {
-                    closeMenu();
-                } else {
+                    closeMenu();//关闭
+                } else {//打开
                     if (current_tab_position == -1) {
                         popupMenuViews.setVisibility(View.VISIBLE);
                         popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R
@@ -342,11 +348,9 @@ public class DropDownMenu extends LinearLayout {
                     current_tab_position = i;
                     TextView textView = getTabTextView(tabMenuView.getChildAt(i));
                     textView.setTextColor(textSelectedColor);
-                    textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft,
-                            mOrientation.dTop,
-                            mOrientation.dRight, mOrientation.dBottom);
+                    setTextDrawables(textView,false);
                 }
-            } else {
+            } else {//关闭
                 TextView textView = getTabTextView(tabMenuView.getChildAt(i));
                 if (textView != null) {
                     textView.setTextColor(textUnselectedColor);
@@ -355,9 +359,7 @@ public class DropDownMenu extends LinearLayout {
                 View listView = getListView(tabMenuView.getChildAt(i));
                 if (listView != null) {
                     if (textView != null) {
-                        textView.setCompoundDrawablesWithIntrinsicBounds(mOrientation.dLeft,
-                                mOrientation.dTop,
-                                mOrientation.dRight, mOrientation.dBottom);
+                        setTextDrawables(textView,true);
                     }
                     listView.setVisibility(View.GONE);
                 }

@@ -3,6 +3,7 @@
 ## 简介
 扩展的思路 可以看我的[简书](http://www.jianshu.com/p/719267a0df32)
 
+[下载demo](app/build/outputs/apk/app-debug.apk)
 ##特色
  - 支持多级菜单
  - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏效果等
@@ -10,7 +11,7 @@
  
 ##ScreenShot
 
-![Paste_Image.png](https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/simple.gif)
+![Paste_Image.png](dropdown_demo.gif)
 
 ##本fork项目扩展
  - 支持 tabView的样式扩展

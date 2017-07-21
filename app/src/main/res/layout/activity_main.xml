@@ -1,23 +1,15 @@
-<com.yyydjk.library.DropDownMenu
-    android:id="@+id/dropDownMenu"
+<com.yyydjk.library.DropDownMenu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dropDownMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:ddmenuTextSize="13sp"
-    app:ddtextUnselectedColor="@color/drop_down_unselected"
-    app:ddtextSelectedColor="@color/drop_down_selected"
     app:dddividerColor="@color/gray"
-    app:ddunderlineColor="@color/gray"
-    app:ddmenuIconOrientation="left"
-    app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon"
     app:ddmaskColor="@color/mask_color"
     app:ddmenuBackgroundColor="@color/white"
+    app:ddmenuIconOrientation="left"
+    app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon"
+    app:ddmenuTextSize="13sp"
     app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
-  >
-    <TextView
-        android:background="#0f0"
-        android:layout_width="100dp"
-        android:text="dajiahao"
-        android:layout_height="200dp"/>
-</com.yyydjk.library.DropDownMenu>
+    app:ddtextSelectedColor="@color/drop_down_selected"
+    app:ddtextUnselectedColor="@color/drop_down_unselected"
+    app:ddunderlineColor="@color/gray"></com.yyydjk.library.DropDownMenu>

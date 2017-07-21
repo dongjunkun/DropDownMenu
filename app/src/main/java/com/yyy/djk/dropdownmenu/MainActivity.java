@@ -24,7 +24,8 @@ import butterknife.InjectView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.dropDownMenu) DropDownMenu mDropDownMenu;
+    @InjectView(R.id.dropDownMenu)
+    DropDownMenu mDropDownMenu;
     private String headers[] = {"城市", "年龄", "性别", "星座"};
     private List<View> popupViews = new ArrayList<>();
 
@@ -49,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        //测试tabView扩展功能
+        final TextView textView = (TextView) getLayoutInflater().inflate(R.layout.tab_text, null);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
+        textView.setTextColor(getResources().getColor(R.color.drop_down_selected));
+        textView.setText("所有");
+
         //init city menu
         final ListView cityView = new ListView(this);
         cityAdapter = new GirdDropDownAdapter(this, Arrays.asList(citys));
@@ -83,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         //添加时间 2017年1月5日21:28:22
         //keyboard3 为支持可以外部控制popViews里的View可以设置layoutParams。注意必须是FrameLayout的布局参数
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(200, 100, 200,0);
+        layoutParams.setMargins(200, 100, 200, 0);
         cityView.setLayoutParams(layoutParams);
         //init popupViews
         popupViews.add(cityView);
@@ -98,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 cityAdapter.setCheckItem(position);
                 mDropDownMenu.setTabText(position == 0 ? headers[0] : citys[position]);
                 mDropDownMenu.closeMenu();
+                textView.setTextColor(getResources().getColor(R.color.drop_down_unselected));
             }
         });
 
@@ -107,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 ageAdapter.setCheckItem(position);
                 mDropDownMenu.setTabText(position == 0 ? headers[1] : ages[position]);
                 mDropDownMenu.closeMenu();
+                textView.setTextColor(getResources().getColor(R.color.drop_down_unselected));
             }
         });
 
@@ -116,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 sexAdapter.setCheckItem(position);
                 mDropDownMenu.setTabText(position == 0 ? headers[2] : sexs[position]);
                 mDropDownMenu.closeMenu();
+                textView.setTextColor(getResources().getColor(R.color.drop_down_unselected));
             }
         });
 
@@ -134,17 +144,24 @@ public class MainActivity extends AppCompatActivity {
         contentView.setGravity(Gravity.CENTER);
         contentView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
 
-        //init dropdownview
+        //初始化 dropdownview
         mDropDownMenu.setDropDownMenu(Arrays.asList(headers), popupViews, contentView);
-        //测试tabView扩展功能
-        TextView textView= (TextView) getLayoutInflater().inflate(R.layout.tab_text,null);
-        textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
-        textView.setText("所有");
-        mDropDownMenu.addTab(textView,4);
+        mDropDownMenu.addTab(textView, 4);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDropDownMenu.closeMenu();
+                if (mDropDownMenu.isActive()) {
+                    mDropDownMenu.closeMenu();
+                    textView.setTextColor(getResources().getColor(R.color.drop_down_selected));
+                } else {
+                    textView.setTextColor(getResources().getColor(R.color.drop_down_unselected));
+                }
+            }
+        });
+        mDropDownMenu.setOnItemMenuClickListener(new DropDownMenu.OnItemMenuClickListener() {
+            @Override
+            public void OnItemMenuClick(TextView tabView, int position) {
+                textView.setTextColor(getResources().getColor(R.color.drop_down_unselected));
             }
         });
     }

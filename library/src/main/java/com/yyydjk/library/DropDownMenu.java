@@ -230,18 +230,21 @@ public class DropDownMenu extends LinearLayout {
         tabMenuView.addView(tab, tabMenuView.getChildCount());
     }
 
-    private void addTab(@NonNull List<String> tabTexts, int i) {
+    private void addTab(@NonNull List<String> tabTexts, final int i) {
         final View tab = inflate(getContext(), R.layout.tab_item, null);
         tab.setLayoutParams(new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
-        TextView textView = getTabTextView(tab);
+        final TextView textView = getTabTextView(tab);
         textView.setText(tabTexts.get(i));
         textView.setTextColor(textUnselectedColor);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
-        setTextDrawables(textView,false);
+        setTextDrawables(textView, false);
         tabMenuView.addView(tab);
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (itemMenuClickListener != null) {
+                    itemMenuClickListener.OnItemMenuClick(textView, i);
+                }
                 switchMenu(v);
             }
         });
@@ -297,7 +300,7 @@ public class DropDownMenu extends LinearLayout {
         if (current_tab_position != -1) {
             TextView textView = getTabTextView(tabMenuView.getChildAt(current_tab_position));
             textView.setTextColor(textUnselectedColor);
-            setTextDrawables(textView,true);
+            setTextDrawables(textView, true);
             popupMenuViews.setVisibility(View.GONE);
             popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim
                     .dd_menu_out));
@@ -305,9 +308,13 @@ public class DropDownMenu extends LinearLayout {
             maskView.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_mask_out));
             current_tab_position = -1;
         }
-
     }
-    public void setTextDrawables(TextView textview,boolean close){
+
+    public boolean isActive() {
+        return current_tab_position != -1;
+    }
+
+    public void setTextDrawables(TextView textview, boolean close) {
         textview.setCompoundDrawablesWithIntrinsicBounds(mOrientation.getLeft(close), mOrientation.getTop(close),
                 mOrientation.getRight(close), mOrientation.getBottom(close));
     }
@@ -348,7 +355,7 @@ public class DropDownMenu extends LinearLayout {
                     current_tab_position = i;
                     TextView textView = getTabTextView(tabMenuView.getChildAt(i));
                     textView.setTextColor(textSelectedColor);
-                    setTextDrawables(textView,false);
+                    setTextDrawables(textView, false);
                 }
             } else {//关闭
                 TextView textView = getTabTextView(tabMenuView.getChildAt(i));
@@ -359,12 +366,22 @@ public class DropDownMenu extends LinearLayout {
                 View listView = getListView(tabMenuView.getChildAt(i));
                 if (listView != null) {
                     if (textView != null) {
-                        setTextDrawables(textView,true);
+                        setTextDrawables(textView, true);
                     }
                     listView.setVisibility(View.GONE);
                 }
             }
         }
+    }
+
+    OnItemMenuClickListener itemMenuClickListener;
+
+    public void setOnItemMenuClickListener(OnItemMenuClickListener listener) {
+        itemMenuClickListener = listener;
+    }
+
+    public interface OnItemMenuClickListener {
+        void OnItemMenuClick(TextView tabView, int position);
     }
 
     /**

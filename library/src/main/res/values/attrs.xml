@@ -6,11 +6,11 @@
         <attr name="ddm_divider" format="reference" />
         <attr name="ddm_textSelectedColor" format="color" />
         <attr name="ddm_textUnselectedColor" format="color" />
-        <attr name="ddm_menuBackgroundColor" format="color" />
+        <attr name="ddm_backgroundColor" format="color" />
         <attr name="ddm_maskColor" format="color" />
-        <attr name="ddm_menuTextSize" format="dimension" />
-        <attr name="ddm_menuSelectedIcon" format="reference" />
-        <attr name="ddm_menuUnselectedIcon" format="reference" />
-        <attr name="ddm_menuHeightPercent" format="float" />
+        <attr name="ddm_textSize" format="dimension" />
+        <attr name="ddm_selectedIcon" format="reference" />
+        <attr name="ddm_unselectedIcon" format="reference" />
+        <attr name="ddm_maxHeightPercent" format="float" />
     </declare-styleable>
 </resources>

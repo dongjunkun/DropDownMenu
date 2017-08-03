@@ -49,17 +49,17 @@ public class DropDownMenu extends LinearLayout {
     //遮罩颜色
     private int maskColor = 0x88888888;
     //tab字体大小
-    private int menuTextSize = 14;
+    private int textSize = 14;
 
     //tab选中图标
     @DrawableRes
-    private int menuSelectedIcon;
+    private int selectedIcon;
     //tab未选中图标
     @DrawableRes
-    private int menuUnselectedIcon;
+    private int unselectedIcon;
 
     //弹出菜单高度最大占屏幕高度的比例
-    private float menuHeighPercent = 0.5f;
+    private float maxHeighPercent = 0.5f;
 
     //菜单出现动画
     private Animation animationMenuIn;
@@ -91,12 +91,12 @@ public class DropDownMenu extends LinearLayout {
         divider = a.getDrawable(R.styleable.DropDownMenu_ddm_divider);
         textSelectedColor = a.getColor(R.styleable.DropDownMenu_ddm_textSelectedColor, textSelectedColor);
         textUnselectedColor = a.getColor(R.styleable.DropDownMenu_ddm_textUnselectedColor, textUnselectedColor);
-        menuBackgroundColor = a.getColor(R.styleable.DropDownMenu_ddm_menuBackgroundColor, menuBackgroundColor);
+        menuBackgroundColor = a.getColor(R.styleable.DropDownMenu_ddm_backgroundColor, menuBackgroundColor);
         maskColor = a.getColor(R.styleable.DropDownMenu_ddm_maskColor, maskColor);
-        menuTextSize = a.getDimensionPixelSize(R.styleable.DropDownMenu_ddm_menuTextSize, menuTextSize);
-        menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddm_menuSelectedIcon, menuSelectedIcon);
-        menuUnselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddm_menuUnselectedIcon, menuUnselectedIcon);
-        menuHeighPercent = a.getFloat(R.styleable.DropDownMenu_ddm_menuHeightPercent, menuHeighPercent);
+        textSize = a.getDimensionPixelSize(R.styleable.DropDownMenu_ddm_textSize, textSize);
+        selectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddm_selectedIcon, selectedIcon);
+        unselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddm_unselectedIcon, unselectedIcon);
+        maxHeighPercent = a.getFloat(R.styleable.DropDownMenu_ddm_maxHeightPercent, maxHeighPercent);
         a.recycle();
 
         //初始化tabMenuView并添加到tabMenuView
@@ -161,7 +161,7 @@ public class DropDownMenu extends LinearLayout {
         }
 
         popupMenuViews = new FrameLayout(getContext());
-        popupMenuViews.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (DeviceUtils.getScreenSize(getContext()).y * menuHeighPercent)));
+        popupMenuViews.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (DeviceUtils.getScreenSize(getContext()).y * maxHeighPercent)));
         popupMenuViews.setVisibility(GONE);
         containerView.addView(popupMenuViews, 2);
 
@@ -178,7 +178,7 @@ public class DropDownMenu extends LinearLayout {
         tab.setTag(tabViewHolder);
         TextView tvLabel = (TextView) tab.findViewById(R.id.tv_label);
         tabViewHolder.tvLabel = tvLabel;
-        tvLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
+        tvLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         tvLabel.setText(tabTexts.get(i));
         final ImageView ivIcon = (ImageView) tab.findViewById(R.id.iv_icon);
         tabViewHolder.ivIcon = ivIcon;
@@ -281,10 +281,10 @@ public class DropDownMenu extends LinearLayout {
         public void setSelected(boolean isSelected) {
             if (isSelected) {
                 tvLabel.setTextColor(textSelectedColor);
-                ivIcon.setImageResource(menuSelectedIcon);
+                ivIcon.setImageResource(selectedIcon);
             } else {
                 tvLabel.setTextColor(textUnselectedColor);
-                ivIcon.setImageResource(menuUnselectedIcon);
+                ivIcon.setImageResource(unselectedIcon);
             }
         }
     }

@@ -11,6 +11,12 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+
+ext {
+    versionCode = 1
+    versionName = '1.0.5'
+}
+
 allprojects {
     repositories {
         jcenter()

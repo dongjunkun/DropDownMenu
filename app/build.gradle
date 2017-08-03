@@ -8,8 +8,8 @@ android {
         applicationId "com.yyy.djk.dropdownmenu"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
     }
     buildTypes {
         release {

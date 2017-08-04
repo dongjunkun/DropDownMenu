@@ -2,15 +2,15 @@
 <resources>
     <declare-styleable name="DropDownMenu">
 
-        <attr name="ddunderlineColor" format="color"/>
-        <attr name="dddividerColor" format="color"/>
-        <attr name="ddtextSelectedColor" format="color"/>
-        <attr name="ddtextUnselectedColor" format="color"/>
-        <attr name="ddmenuBackgroundColor" format="color"/>
-        <attr name="ddmaskColor" format="color"/>
-        <attr name="ddmenuTextSize" format="dimension"/>
-        <attr name="ddmenuSelectedIcon" format="reference"/>
-        <attr name="ddmenuUnselectedIcon" format="reference"/>
-        <attr name="ddmenuMenuHeightPercent" format="float"/>
+        <attr name="ddm_underlineColor" format="color" />
+        <attr name="ddm_divider" format="reference" />
+        <attr name="ddm_textSelectedColor" format="color" />
+        <attr name="ddm_textUnselectedColor" format="color" />
+        <attr name="ddm_backgroundColor" format="color" />
+        <attr name="ddm_maskColor" format="color" />
+        <attr name="ddm_textSize" format="dimension" />
+        <attr name="ddm_selectedIcon" format="reference" />
+        <attr name="ddm_unselectedIcon" format="reference" />
+        <attr name="ddm_maxHeightPercent" format="float" />
     </declare-styleable>
 </resources>

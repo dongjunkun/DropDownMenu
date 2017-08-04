@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="ddm_tab_label_vertical_padding">12dp</dimen>
+</resources>

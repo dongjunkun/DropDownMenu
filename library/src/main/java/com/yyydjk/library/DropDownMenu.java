@@ -237,7 +237,7 @@ public class DropDownMenu extends LinearLayout {
         textView.setText(tabTexts.get(i));
         textView.setTextColor(textUnselectedColor);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
-        setTextDrawables(textView, false);
+        setTextDrawables(textView, true);
         tabMenuView.addView(tab);
         tab.setOnClickListener(new OnClickListener() {
             @Override

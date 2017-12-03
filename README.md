@@ -14,23 +14,23 @@
 
 ## 扩展
 
- 箭头居中而不是居最右<br>
-![箭头居中而不是居最右](http://upload-images.jianshu.io/upload_images/1682632-a7d108a623dabb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+箭头居中而不是居最右<br>
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-a7d108a623dabb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
 
- icon方向属性<br>
-![icon方向属性](http://upload-images.jianshu.io/upload_images/1682632-67fed77c933c62c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![效果图](http://upload-images.jianshu.io/upload_images/1682632-a9830a6500806c6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+icon方向属性<br>
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-67fed77c933c62c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-a9830a6500806c6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
 
- 分隔线高度属性<br>
-![分隔线高度属性](http://upload-images.jianshu.io/upload_images/1682632-14683c5a45292208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![效果图](http://upload-images.jianshu.io/upload_images/1682632-74b76c2474762382.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+分隔线高度属性<br>
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-14683c5a45292208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-74b76c2474762382.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
 
 为popupWindows集合的view增加了对LayoutParams的支持<br>
-![代码图](http://upload-images.jianshu.io/upload_images/1682632-e65f5c4edefc1b1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![效果图](http://upload-images.jianshu.io/upload_images/1682632-86ef98adaf6c8d44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-e65f5c4edefc1b1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-86ef98adaf6c8d44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
 
 支持手动添加非下拉tabView<br>
-![可以在tab位置中插入自己需要的tabView](http://upload-images.jianshu.io/upload_images/1682632-54018e2db4c6bc13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<div style="display:inline;"><img src="http://upload-images.jianshu.io/upload_images/1682632-54018e2db4c6bc13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="332"></div>
 
 ## 使用
 注意：`此布局需要作为根布局才可能覆盖内容区域`

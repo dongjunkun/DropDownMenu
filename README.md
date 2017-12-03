@@ -1,41 +1,41 @@
-[![](https://jitpack.io/v/dongjunkun/DropDownMenu.svg)](https://jitpack.io/#dongjunkun/DropDownMenu)
-
 ## 简介
 扩展的思路 可以看我的[简书](http://www.jianshu.com/p/719267a0df32)
 
-[下载demo](app/build/outputs/apk/app-debug.apk)
-##特色
- - 支持多级菜单
- - 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏效果等
- - 并非用popupWindow实现，无卡顿
- 
-##ScreenShot
+## 下载
+[demo.apk](app/build/outputs/apk/app-debug.apk)
 
-![Paste_Image.png](dropdown_demo.gif)
-
-##本fork项目扩展
- - 支持 tabView的样式扩展
+## 特色
+* 支持多级菜单
+* 你可以完全自定义你的菜单样式，我这里只是封装了一些实用的方法，Tab的切换效果，菜单显示隐藏效果等
+* 非用popupWindow实现，无卡顿
  
+## 截图
+<div style="display:inline;"><img src="dropdown_demo.gif" width="332"></div>
+
+## 扩展
+
+ 箭头居中而不是居最右<br>
 ![箭头居中而不是居最右](http://upload-images.jianshu.io/upload_images/1682632-a7d108a623dabb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
- 应读者要求加了箭头在文本的方向属性以及分隔线高度属性
- 
+ icon方向属性<br>
 ![icon方向属性](http://upload-images.jianshu.io/upload_images/1682632-67fed77c933c62c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![效果图](http://upload-images.jianshu.io/upload_images/1682632-a9830a6500806c6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
- ------
+
+ 分隔线高度属性<br>
 ![分隔线高度属性](http://upload-images.jianshu.io/upload_images/1682632-14683c5a45292208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![效果图](http://upload-images.jianshu.io/upload_images/1682632-74b76c2474762382.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
--------
-为popupWindows集合的view增加了对LayoutParams的支持。
+
+为popupWindows集合的view增加了对LayoutParams的支持<br>
 ![代码图](http://upload-images.jianshu.io/upload_images/1682632-e65f5c4edefc1b1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![效果图](http://upload-images.jianshu.io/upload_images/1682632-86ef98adaf6c8d44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-- 支持手动添加非下拉tabView
 
+支持手动添加非下拉tabView<br>
 ![可以在tab位置中插入自己需要的tabView](http://upload-images.jianshu.io/upload_images/1682632-54018e2db4c6bc13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-我们只需要在java代码中调用下面的代码
-##扩展的使用
- - 样式扩展
+## 使用
+注意：`此布局需要作为根布局才可能覆盖内容区域`
+
+* 样式扩展
 添加名为tab_item.xml到你的布局文件，在要显示内容的TextView上设置id为R.id.tv_tab。tab_item.xml中 任意布局即可。
 tab_item.xml
 ```xml
@@ -57,7 +57,7 @@ tab_item.xml
         android:textColor="#26a8e0" />
 </LinearLayout>
 ```
- - 手动添加非下拉tabView
+* 手动添加非下拉tabView
 tab_text.xml设置样式/也可以代码生成，加载控件添加到DropDownMenu中
 tab_text
 ```xml
@@ -73,7 +73,7 @@ tab_text
     android:textColor="#26a8e0"
     xmlns:android="http://schemas.android.com/apk/res/android" />
 ```
- 调用添加,在setDropDownMenu之后添加
+调用添加,在setDropDownMenu之后添加
 ```java
 ...
 //init dropdownview
@@ -90,7 +90,14 @@ tab_text
        }
    });
 ```
+
 如果你要了解更多，可以直接看源码  <a href="https://github.com/keyboard3/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Example</a>
 
-##关于fork的我
-简书[keyboard3](http://www.jianshu.com/users/62329de8c8a6/latest_articles)
+## 关于我
+
+简书 [keyboard3](http://www.jianshu.com/users/62329de8c8a6/latest_articles)<br>
+邮箱 keyboard3@icloud.com
+
+# 致谢
+
+- 感谢 [dongjunkun/DropDownMenu](https://github.com/dongjunkun/DropDownMenu) 

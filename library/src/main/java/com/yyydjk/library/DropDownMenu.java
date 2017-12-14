@@ -79,7 +79,7 @@ public class DropDownMenu extends LinearLayout {
     private View maskView;
     //tabMenuView里面选中的tab位置，-1表示未选中
     private int current_tab_position = -1;
-    private float dividerHeight = LayoutParams.MATCH_PARENT;
+    private float dividerHeight;
     //分割线颜色
     private int dividerColor = 0xffcccccc;
     //tab选中颜色
@@ -258,7 +258,8 @@ public class DropDownMenu extends LinearLayout {
 
     private View getDividerView() {
         View view = new View(getContext());
-        LayoutParams params = new LayoutParams(dpTpPx(0.5f), dpTpPx(dividerHeight));
+        double height = dividerHeight > 0 ? dpTpPx(dividerHeight) : dividerHeight;
+        LayoutParams params = new LayoutParams(dpTpPx(0.5f), (int) height);
         params.gravity = Gravity.CENTER_VERTICAL;
         view.setLayoutParams(params);
         view.setBackgroundColor(dividerColor);

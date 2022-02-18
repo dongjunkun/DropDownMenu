@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private String headers[] = {"城市", "年龄", "性别", "星座"};
     private List<View> popupViews = new ArrayList<>();
 
-    private GirdDropDownAdapter cityAdapter;
-    private ListDropDownAdapter ageAdapter;
-    private ListDropDownAdapter sexAdapter;
+    private ConstellationAdapter cityAdapter;
+    private ConstellationAdapter ageAdapter;
+    private ConstellationAdapter sexAdapter;
     private ConstellationAdapter constellationAdapter;
 
     private String citys[] = {"不限", "武汉", "北京", "上海", "成都", "广州", "深圳", "重庆", "天津", "西安", "南京", "杭州"};
@@ -49,20 +49,20 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         //init city menu
         final ListView cityView = new ListView(this);
-        cityAdapter = new GirdDropDownAdapter(this, Arrays.asList(citys));
+        cityAdapter = new ConstellationAdapter(this, Arrays.asList(citys));
         cityView.setDividerHeight(0);
         cityView.setAdapter(cityAdapter);
 
         //init age menu
         final ListView ageView = new ListView(this);
         ageView.setDividerHeight(0);
-        ageAdapter = new ListDropDownAdapter(this, Arrays.asList(ages));
+        ageAdapter = new ConstellationAdapter(this, Arrays.asList(ages));
         ageView.setAdapter(ageAdapter);
 
         //init sex menu
         final ListView sexView = new ListView(this);
         sexView.setDividerHeight(0);
-        sexAdapter = new ListDropDownAdapter(this, Arrays.asList(sexs));
+        sexAdapter = new ConstellationAdapter(this, Arrays.asList(sexs));
         sexView.setAdapter(sexAdapter);
 
         //init constellation
